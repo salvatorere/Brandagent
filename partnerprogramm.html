@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Partnerprogramm - Brand Agent GmbH</title>
+    <link rel="icon" href="/api/placeholder/32/32" type="image/x-icon">
+    <style>
+        /* Globale Stile */
+        :root {
+            --primary-color: #6B46C1;
+            --secondary-color: #86868b;
+            --background-color: #f5f5f7;
+            --text-color: #1d1d1f;
+            --accent-color: #553C9A;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+            width: 100%;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            max-width: 280px;
+        }
+        
+        .logo img {
+            height: 40px;
+            width: auto;
+            max-width: 100%;
+        }
+        
+        .logo span {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            white-space: nowrap;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary-color);
+        }
+        
+        .mobile-menu {
+            display: none;
+            cursor: pointer;
+        }
+        
+        /* Header für Unterseiten */
+        .page-header {
+            padding-top: 120px;
+            padding-bottom: 40px;
+            background: linear-gradient(135deg, #f5f5f7 0%, #e0e0e3 100%);
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-color);
+        }
+        
+        .page-header p {
+            font-size: 1.2rem;
+            color: var(--secondary-color);
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        /* Hauptcontainer */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+        
+        /* Intro-Sektion */
+        .intro {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .intro h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--text-color);
+        }
+        
+        .intro p {
+            font-size: 1.2rem;
+            color: var(--secondary-color);
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            line-height: 1.6;
+        }
+        
+        /* Sektion ähnlich Agents-Übersicht */
+        .agents-overview { display: grid; grid-template-columns: 1fr; gap: 4rem; margin-bottom: 5rem; }
+        .agent-section { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; align-items: center; }
+        .agent-section:nth-child(even) { direction: rtl; }
+        .agent-section:nth-child(even) .agent-content { direction: ltr; }
+        .agent-section:nth-child(even) .agent-image { direction: ltr; }
+        .agent-image { border-radius: 20px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .agent-image img { width: 100%; height: auto; display: block; }
+        .agent-content { padding: 2rem; }
+        .agent-content h3 { font-size: 2rem; font-weight: 700; margin-bottom: 1.5rem; color: var(--text-color); }
+        .agent-content p { color: var(--secondary-color); line-height: 1.8; margin-bottom: 2rem; }
+        .agent-features { margin-bottom: 2rem; }
+        .agent-feature { display: flex; align-items: flex-start; margin-bottom: 1rem; }
+        .agent-feature-icon { color: var(--primary-color); font-size: 1.5rem; margin-right: 1rem; flex-shrink: 0; }
+        .agent-feature-text { color: var(--secondary-color); }
+        .learn-more-btn { display: inline-block; background-color: var(--primary-color); color: white; padding: 0.8rem 1.5rem; border-radius: 10px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; }
+        .learn-more-btn:hover { background-color: var(--accent-color); transform: translateY(-3px); box-shadow: 0 10px 20px rgba(138, 86, 201, 0.3); }
+        
+        /* FAQ-Sektion */
+        .faq-section { margin-bottom: 5rem; }
+        .faq-section h2 { font-size: 2.5rem; font-weight: 700; margin-bottom: 2rem; text-align: center; color: var(--text-color); }
+        .faq-item { background-color: white; border-radius: 10px; margin-bottom: 1rem; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .faq-question { padding: 1.5rem; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: background-color 0.3s ease; }
+        .faq-question:hover { background-color: rgba(138, 86, 201, 0.05); }
+        .faq-question::after { content: "+"; font-size: 1.5rem; color: var(--primary-color); }
+        .faq-answer { padding: 0 1.5rem; max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s ease; }
+        .faq-item.active .faq-question::after { content: "−"; }
+        .faq-item.active .faq-answer { padding: 0 1.5rem 1.5rem; max-height: 500px; }
+        .faq-answer p { color: var(--secondary-color); line-height: 1.6; }
+        
+        /* CTA-Sektion */
+        .cta { background: none; color: #8a56c9; border-radius: 0; box-shadow: none; padding: 6rem 1.5rem; margin: 4rem auto 0 auto; max-width: 900px; }
+        .cta-container { text-align: center; }
+        .cta-container h2 { font-size: 2.5rem; font-weight: 700; margin-bottom: 1.5rem; }
+        .cta-container p { font-size: 1.2rem; color: var(--secondary-color); max-width: 800px; margin: 0 auto 2rem; line-height: 1.6; }
+        .cta-btn { background-color: var(--primary-color); color: white; border: none; padding: 1rem 2rem; border-radius: 10px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; text-decoration: none; display: inline-block; }
+        .cta-btn:hover { background-color: var(--accent-color); transform: translateY(-3px); box-shadow: 0 10px 20px rgba(138, 86, 201, 0.3); }
+        
+        /* Footer */
+        footer { background-color: var(--text-color); color: white; padding: 4rem 2rem; }
+        .footer-content { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem; }
+        .footer-logo { font-size: 1.5rem; font-weight: 700; color: white; margin-bottom: 1rem; }
+        .footer-description { color: #aaa; line-height: 1.6; margin-bottom: 1.5rem; }
+        .footer-social { display: flex; gap: 1rem; }
+        .footer-social a { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; background-color: #333; border-radius: 50%; color: white; text-decoration: none; transition: background-color 0.3s ease; }
+        .footer-social a:hover { background-color: var(--primary-color); }
+        .footer-title { font-size: 1.2rem; font-weight: 600; margin-bottom: 1.5rem; }
+        .footer-links { display: flex; flex-direction: column; gap: 0.8rem; }
+        .footer-links a { color: #aaa; text-decoration: none; transition: color 0.3s ease; }
+        .footer-links a:hover { color: white; }
+        .footer-bottom { max-width: 1200px; margin: 0 auto; padding-top: 2rem; margin-top: 3rem; border-top: 1px solid #333; display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 1rem; }
+        .footer-legal { display: flex; gap: 1.5rem; }
+        .footer-legal a { color: #aaa; text-decoration: none; transition: color 0.3s ease; font-size: 0.9rem; }
+        
+        /* Animation */
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .fade-in { animation: fadeIn 1s ease forwards; }
+        .fade-in-delay-1 { opacity: 0; animation: fadeIn 1s ease forwards 0.2s; }
+        .fade-in-delay-2 { opacity: 0; animation: FadeIn 1s ease forwards 0.4s; }
+        .fade-in-delay-3 { opacity: 0; animation: fadeIn 1s ease forwards 0.6s; }
+        
+        /* Partnerprogramm Styles (angepasst an bestehendes Layout) */
+        .partner-hero {
+            padding: 4rem 2rem;
+            background: linear-gradient(180deg, #fafafa 0%, #ffffff 100%);
+        }
+        .partner-hero-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            align-items: center;
+        }
+        .partner-hero h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--text-color);
+        }
+        .partner-hero p {
+            margin-top: 1rem;
+            font-size: 1.1rem;
+            color: var(--secondary-color);
+            line-height: 1.6;
+        }
+        .partner-cta-row { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; margin-top: 1.25rem; }
+        .btn-primary {
+            display: inline-flex; align-items: center; justify-content: center;
+            padding: 0.9rem 1.4rem; border-radius: 12px; text-decoration: none;
+            font-weight: 600; color: #fff; background: #1f2937; transition: background 0.2s ease;
+        }
+        .btn-primary:hover { background: #111827; }
+        .code-chip { display: inline-flex; align-items: center; border-radius: 8px; background: #f3f4f6; color: #111827; padding: 0.35rem 0.6rem; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+        .btn-ghost { display: inline-flex; align-items: center; border: 1px solid #e5e7eb; border-radius: 8px; padding: 0.35rem 0.6rem; background: #fff; color: #374151; cursor: pointer; }
+        .btn-ghost:hover { background: #f9fafb; }
+        .visual-box { aspect-ratio: 4/3; width: 100%; border-radius: 16px; background: #f3f4f6; box-shadow: inset 0 1px 6px rgba(0,0,0,0.06); }
+        .visual-col { display: flex; justify-content: center; align-items: center; }
+        .hero-image { width: 100%; max-width: 520px; height: auto; object-fit: contain; border-radius: 16px; box-shadow: 0 10px 24px rgba(0,0,0,0.08); background: #f3f4f6; margin: 0 auto; display: block; padding: 12px; }
+        
+        .feature-grid { display: grid; gap: 1.2rem; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+        .feature-card { border: 1px solid #e5e7eb; border-radius: 16px; background: #fff; padding: 1.25rem; }
+        .feature-card h3 { font-size: 1.15rem; color: var(--text-color); margin-bottom: 0.25rem; }
+        .feature-card p { color: var(--secondary-color); }
+        
+        .offer-banner { border-radius: 16px; background: #111827; color: #fff; padding: 2rem; display: grid; gap: 1rem; grid-template-columns: 1fr; }
+        .offer-actions { display: flex; gap: 0.8rem; align-items: center; flex-wrap: wrap; }
+        .btn-light { background: #fff; color: #111827; border-radius: 12px; padding: 0.7rem 1rem; font-weight: 600; text-decoration: none; }
+        .btn-light:hover { background: rgba(255,255,255,0.92); }
+        .code-chip-dark { background: rgba(255,255,255,0.12); color: #fff; border-radius: 8px; padding: 0.35rem 0.6rem; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+        
+        .steps { display: grid; gap: 1.2rem; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+        .step-card { border: 1px solid #e5e7eb; border-radius: 16px; background: #fff; padding: 1.25rem; }
+        .step-label { font-size: 0.9rem; font-weight: 600; color: #6b7280; }
+        .step-title { margin-top: 0.25rem; font-size: 1.1rem; font-weight: 700; color: #111827; }
+        
+        .final-cta { text-align: center; }
+        .btn-wide { display: inline-flex; align-items: center; justify-content: center; border-radius: 12px; padding: 1rem 1.8rem; background: #1f2937; color: #fff; font-weight: 600; text-decoration: none; }
+        .btn-wide:hover { background: #111827; }
+        
+        @media (max-width: 768px) {
+            .partner-hero { padding: 3rem 1rem; }
+        }
+        
+        /* Responsives Design */
+        @media (max-width: 768px) {
+            .page-header h1 { font-size: 2.5rem; }
+            .intro h2, .agent-content h3, .faq-section h2 { font-size: 2rem; }
+            .nav-links { display: none; position: absolute; top: 100%; left: 0; width: 100%; background-color: white; flex-direction: column; padding: 1rem 2rem; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); }
+            .nav-links.active { display: flex; }
+            .mobile-menu { display: block; }
+            .cta { padding: 2rem; }
+            .agent-section { direction: ltr; }
+            .agent-section:nth-child(even) { direction: ltr; }
+            .agent-image { margin-bottom: 2rem; }
+            .offer-banner { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                <img src="Image/logo2.png" alt="Brand Agent Logo">
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="brands.html">Brands</a>
+                <a href="agents.html">Agents</a>
+                <a href="partnerprogramm.html" class="active">Partnerprogramm</a>
+                <a href="kontakt.html">Kontakt</a>
+            </div>
+            <div class="mobile-menu">☰</div>
+        </div>
+    </nav>
+    
+    <!-- Seitenheader -->
+    <header class="page-header">
+        <h1 class="fade-in">Partnerprogramm</h1>
+    </header>
+    
+    <!-- Hauptinhalt -->
+    <main>
+        <!-- HERO -->
+        <section class="partner-hero">
+            <div class="partner-hero-inner">
+                <div>
+                    <h1>Spare 40% auf bexio – exklusiv für unsere Partner!</h1>
+                    <p>Starten Sie jetzt mit der Business-Software bexio und profitieren Sie von einer einfachen Lösung für Ihre Buchhaltung, Offerten, Rechnungen und vieles mehr.</p>
+            <div class="partner-cta-row">
+                <a href="https://www.bexio.com/de-CH/partner-trial-40?q_partner_name=brand-agent-gmbh" target="_blank" rel="noopener" class="btn-primary" style="background:#6B46C1;">Jetzt 40% Rabatt sichern</a>
+                        <div class="partner-cta-row">
+                            <span class="code-chip">Code: partner40</span>
+                    <button type="button" class="btn-ghost copy-code" aria-label="Code kopieren" style="border-color:#6B46C1;color:#6B46C1;">Kopieren</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="visual-col">
+                    <img src="Image/bexio.png" alt="bexio Software Vorschau" class="hero-image" />
+                </div>
+            </div>
+        </section>
+
+        <!-- Warum bexio -->
+        <section class="container" style="padding-top: 3rem; padding-bottom: 3rem;">
+            <h2 style="font-size: 2rem; font-weight: 700; color: var(--text-color);">Warum bexio?</h2>
+            <div class="feature-grid" style="margin-top: 1.2rem;">
+                <div class="feature-card">
+                    <h3>Einfache Buchhaltung</h3>
+                    <p>Rechnungen & Offerten in Minuten erstellen.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Alles in einer Lösung</h3>
+                    <p>Kontakte, Projekte, Banking & Buchhaltung.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Zeit sparen</h3>
+                    <p>Mehr Fokus auf Ihr Business, weniger Administration.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Exklusives Partnerangebot -->
+        <section class="container" style="padding-top: 1rem; padding-bottom: 1rem;">
+            <div class="offer-banner">
+                <div>
+                    <h3 style="font-size: 1.6rem; font-weight: 700;">Exklusiv für unsere Kunden: 40% Rabatt!</h3>
+                    <p style="margin-top: 0.5rem; color: rgba(255,255,255,0.85);">Melde dich über unseren Partnerlink an und sichere dir 40% Preisnachlass auf dein bexio-Abo. Einfach den Code beim Registrieren eingeben.</p>
+                    <div class="offer-actions" style="margin-top: 0.5rem;">
+                        <span class="code-chip-dark">Code: partner40</span>
+                        <button type="button" class="btn-ghost copy-code" aria-label="Code kopieren">Kopieren</button>
+                    </div>
+                </div>
+                <a href="https://www.bexio.com/de-CH/partner-trial-40?q_partner_name=brand-agent-gmbh" target="_blank" rel="noopener" class="btn-light" style="color:#6B46C1;">Zum Angebot</a>
+            </div>
+        </section>
+
+        <!-- So funktioniert's -->
+        <section class="container" style="padding-top: 3rem; padding-bottom: 3rem;">
+            <h2 style="font-size: 2rem; font-weight: 700; color: var(--text-color);">So einfach funktioniert es</h2>
+            <ol class="steps" style="margin-top: 1.2rem; list-style: none; padding-left: 0;">
+                <li class="step-card">
+                    <p class="step-label">Schritt 1</p>
+                    <p class="step-title">Auf „Jetzt starten“ klicken</p>
+                </li>
+                <li class="step-card">
+                    <p class="step-label">Schritt 2</p>
+                    <p class="step-title">Bei bexio registrieren</p>
+                </li>
+                <li class="step-card">
+                    <p class="step-label">Schritt 3</p>
+                    <p class="step-title">Code <span style="font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;">partner40</span> eingeben & sparen</p>
+                </li>
+            </ol>
+        </section>
+
+    </main>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div>
+                <div class="footer-logo">Brand Agent GmbH</div>
+                <p class="footer-description">Ihr Partner für erfolgreiche E-Commerce-Strategien, Onlineshop-Entwicklung und individuelle Automatisierungslösungen. Wir verbinden Beratung, Design und Technologie, damit Ihre digitalen Prozesse effizienter laufen und Ihre Marke nachhaltig wächst.</p>
+                <div class="footer-social">
+                    <a href="https://www.linkedin.com/company/brandagentgmbh/" target="_blank" aria-label="LinkedIn">in</a>
+                </div>
+            </div>
+            <div>
+                <h3 class="footer-title">Links</h3>
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="brands.html">Brands</a>
+                    <a href="agents.html">Agents</a>
+                    <a href="partnerprogramm.html">Partnerprogramm</a>
+                    <a href="kontakt.html">Kontakt</a>
+                </div>
+            </div>
+            <div>
+                <h3 class="footer-title">Kontakt</h3>
+                <div class="footer-links">
+                    <a>Brand Agent GmbH</a>
+                    <a>Waldetenstrasse 23, 6343 Rotkreuz</a>
+                    <a>UID: CHE-204.407.181</a>
+                    <a href="mailto:info@brandagent.ch">info@brandagent.ch</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-copy">&copy; 2025 Brand Agent GmbH. Alle Rechte vorbehalten.</div>
+        </div>
+    </footer>
+
+    <!-- FAQ Toggle -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.querySelector('.mobile-menu');
+            const navLinks = document.querySelector('.nav-links');
+            mobileMenuButton.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+            });
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', () => {
+                    const faqItem = question.parentElement;
+                    faqItem.classList.toggle('active');
+                });
+            });
+
+            // Copy-to-clipboard für Partnercode
+            document.querySelectorAll('.copy-code').forEach(function(btn) {
+                btn.addEventListener('click', async function() {
+                    try {
+                        await navigator.clipboard.writeText('partner40');
+                        const old = btn.textContent;
+                        btn.textContent = 'Kopiert!';
+                        setTimeout(function(){ btn.textContent = old || 'Kopieren'; }, 1500);
+                    } catch (e) {
+                        console.error(e);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontakt - Brand Agent GmbH</title>
+    <link rel="icon" href="/api/placeholder/32/32" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Globale Stile */
+        :root {
+            --primary-color: #6B46C1;
+            --secondary-color: #86868b;
+            --background-color: #f5f5f7;
+            --text-color: #1d1d1f;
+            --accent-color: #553C9A;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 1rem;
+            width: 100%;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            max-width: 280px;
+        }
+        
+        .logo img {
+            height: 40px;
+            width: auto;
+            max-width: 100%;
+        }
+        
+        .logo span {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            white-space: nowrap;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary-color);
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 4px;
+        }
+        
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background-color: var(--text-color);
+            transition: 0.3s;
+        }
+        
+        /* Mobile Navigation */
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 0 1rem;
+            }
+            
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                gap: 1rem;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .hamburger {
+                display: flex;
+            }
+            
+            .logo span {
+                font-size: 1.1rem;
+            }
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--text-color);
+            color: white;
+            padding: 4rem 2rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+        
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-description {
+            color: #aaa;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .footer-social a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: #333;
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+        
+        .footer-social a:hover {
+            background-color: var(--primary-color);
+        }
+        
+        .footer-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+        
+        .footer-links a {
+            color: #aaa;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            margin-top: 3rem;
+            border-top: 1px solid #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .footer-copyright {
+            color: #aaa;
+        }
+        
+        .footer-legal {
+            display: flex;
+            gap: 1.5rem;
+        }
+        
+        .footer-legal a {
+            color: #aaa;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: 0.9rem;
+        }
+        
+        .footer-legal a:hover {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                <img src="Image/logo2.png" alt="Brand Agent Logo">
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="brands.html">Brands</a>
+                <a href="agents.html">Agents</a>
+                <a href="partnerprogramm.html">Partnerprogramm</a>
+                <a href="kontakt.html" class="active">Kontakt</a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- HERO -->
+    <header class="pt-28 pb-12 md:pb-16 bg-white">
+        <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+            <h1 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl">Kontakt aufnehmen</h1>
+            <p class="mt-6 text-base sm:text-lg text-gray-700 leading-relaxed">Wir beraten Sie gerne zu Automatisierungen, E-Commerce und individuellen Lösungen. Senden Sie uns Ihre Anfrage – wir melden uns zeitnah zurück.</p>
+        </div>
+    </header>
+    
+    <main>
+        <!-- Team-Sektion -->
+        <section class="py-12 md:py-16 lg:py-24 bg-gray-50">
+            <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+                <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 text-center mb-12">Unser Team</h2>
+                <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-2 max-w-4xl mx-auto">
+                    <div class="bg-white rounded-2xl p-6 lg:p-8 shadow-sm text-center">
+                        <div class="mb-6">
+                            <img src="Image/Foto1.jpeg" alt="Silvio Glarner" class="w-32 h-32 rounded-full object-cover mx-auto shadow-lg">
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Silvio Glarner</h3>
+                        <p class="text-purple-700 font-medium mb-3">Founder<br>Dipl. Betriebswirtschafter</p>
+                        <p class="text-gray-700 leading-relaxed">Ich freue mich auf Ihre Nachricht und stehe Ihnen gerne persönlich zur Verfügung!</p>
+                    </div>
+                    <div class="bg-white rounded-2xl p-6 lg:p-8 shadow-sm text-center">
+                        <div class="mb-6">
+                            <img src="Image/Foto2.jpeg" alt="Salvatore Reccardo" class="w-32 h-32 rounded-full object-cover mx-auto shadow-lg" style="object-position: 30% 80%;">
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Salvatore Reccardo</h3>
+                        <p class="text-purple-700 font-medium mb-3">Founder<br>Dipl. Unternehmensprozessetechniker</p>
+                        <p class="text-gray-700 leading-relaxed">Ich unterstütze Sie gerne bei allen Anliegen rund um unsere Leistungen!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Kontakt-Formular und Infos -->
+        <section class="py-12 md:py-16 lg:py-24 bg-white">
+            <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+                <div class="grid lg:grid-cols-3 gap-8 lg:gap-12">
+                    <!-- Formular (links, 2/3 auf Desktop) -->
+                    <div class="lg:col-span-2">
+                        <form id="contactForm" class="space-y-6" novalidate>
+                            <!-- Honeypot für Spam-Schutz -->
+                            <input type="text" name="website" style="display: none;" tabindex="-1" autocomplete="off">
+                            
+                            <!-- Vor- und Nachname -->
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-900 mb-2">Vor- und Nachname *</label>
+                                <input type="text" id="name" name="name" required 
+                                       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-700 focus:border-purple-700 transition-colors"
+                                       aria-describedby="name-error">
+                                <div id="name-error" class="mt-1 text-sm text-red-600 hidden" role="alert"></div>
+                            </div>
+                            
+                            <!-- E-Mail -->
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-900 mb-2">E-Mail *</label>
+                                <input type="email" id="email" name="email" required 
+                                       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-700 focus:border-purple-700 transition-colors"
+                                       aria-describedby="email-error">
+                                <div id="email-error" class="mt-1 text-sm text-red-600 hidden" role="alert"></div>
+                            </div>
+                            
+                            <!-- Telefon -->
+                            <div>
+                                <label for="phone" class="block text-sm font-medium text-gray-900 mb-2">Telefonnummer</label>
+                                <input type="tel" id="phone" name="phone" 
+                                       pattern="[\+]?[0-9\s\-\(\)]{10,}"
+                                       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-700 focus:border-purple-700 transition-colors"
+                                       placeholder="z.B. +41 79 123 45 67"
+                                       aria-describedby="phone-help">
+                                <div id="phone-help" class="mt-1 text-sm text-gray-500">Optional - für internationale Nummern</div>
+                            </div>
+                            
+                            <!-- Unternehmen -->
+                            <div>
+                                <label for="company" class="block text-sm font-medium text-gray-900 mb-2">Unternehmen</label>
+                                <input type="text" id="company" name="company" 
+                                       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-700 focus:border-purple-700 transition-colors">
+                            </div>
+                            
+                            <!-- Betreff -->
+                            <div>
+                                <label for="subject" class="block text-sm font-medium text-gray-900 mb-2">Betreff *</label>
+                                <select id="subject" name="subject" required 
+                                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-700 focus:border-purple-700 transition-colors"
+                                        aria-describedby="subject-error">
+                                    <option value="">Bitte wählen Sie ein Thema</option>
+                                    <option value="automatisierung">Beratung Automatisierung</option>
+                                    <option value="ecommerce">E-Commerce/Shop</option>
+                                    <option value="bexio">Partnerschaft bexio</option>
+                                    <option value="allgemein">Allgemeine Anfrage</option>
+                                </select>
+                                <div id="subject-error" class="mt-1 text-sm text-red-600 hidden" role="alert"></div>
+                            </div>
+                            
+                            <!-- Nachricht -->
+                            <div>
+                                <label for="message" class="block text-sm font-medium text-gray-900 mb-2">Nachricht *</label>
+                                <textarea id="message" name="message" rows="6" required 
+                                          class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-700 focus:border-purple-700 transition-colors resize-vertical"
+                                          placeholder="Beschreiben Sie Ihr Anliegen..."
+                                          aria-describedby="message-error"></textarea>
+                                <div id="message-error" class="mt-1 text-sm text-red-600 hidden" role="alert"></div>
+                            </div>
+                            
+                            <!-- Datei anhängen (optional) -->
+                            <div>
+                                <label for="attachment" class="block text-sm font-medium text-gray-900 mb-2">Datei anhängen</label>
+                                <input type="file" id="attachment" name="attachment" 
+                                       accept=".pdf,.jpg,.jpeg,.png"
+                                       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-700 focus:border-purple-700 transition-colors">
+                                <div class="mt-1 text-sm text-gray-500">Optional - max. 10 MB (PDF, JPG, PNG)</div>
+                            </div>
+                            
+                            <!-- Einwilligung -->
+                            <div>
+                                <div class="flex items-start">
+                                    <input type="checkbox" id="privacy" name="privacy" required 
+                                           class="mt-1 h-4 w-4 text-purple-700 focus:ring-purple-700 border-gray-300 rounded"
+                                           aria-describedby="privacy-error">
+                                    <label for="privacy" class="ml-3 text-sm text-gray-700 leading-relaxed">
+                                        Ich stimme zu, dass meine Angaben zur Beantwortung meiner Anfrage gespeichert und verarbeitet werden. 
+                                        <a href="#" class="text-purple-700 hover:text-purple-800 underline">Details in der Datenschutzerklärung</a>. *
+                                    </label>
+                                </div>
+                                <div id="privacy-error" class="mt-1 text-sm text-red-600 hidden" role="alert"></div>
+                            </div>
+                            
+                            <!-- Submit Button -->
+                            <div>
+                                <button type="submit" id="submitBtn" 
+                                        class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-3 text-base font-semibold text-white bg-purple-700 hover:bg-purple-800 focus:ring-2 focus:ring-purple-700 focus:ring-offset-2 rounded-lg transition-colors">
+                                    Nachricht senden
+                                </button>
+                            </div>
+                        </form>
+                        
+                        <!-- Success Message -->
+                        <div id="successMessage" class="hidden mt-6 p-4 bg-green-50 border border-green-200 rounded-lg">
+                            <div class="flex">
+                                <div class="flex-shrink-0">
+                                    <svg class="h-5 w-5 text-green-400" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                    </svg>
+                                </div>
+                                <div class="ml-3">
+                                    <h3 class="text-sm font-medium text-green-800">Vielen Dank!</h3>
+                                    <div class="mt-1 text-sm text-green-700">
+                                        Wir haben Ihre Nachricht erhalten und melden uns in Kürze.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Kontakt-Infos (rechts, 1/3 auf Desktop) -->
+                    <div class="lg:col-span-1">
+                        <div class="bg-gray-50 rounded-2xl p-6 lg:p-8">
+                            <h3 class="text-xl font-semibold text-gray-900 mb-6">So erreichen Sie uns</h3>
+                            
+                            <div class="space-y-6">
+                                <!-- E-Mail -->
+                                <div>
+                                    <h4 class="text-sm font-medium text-gray-900 mb-2">E-Mail</h4>
+                                    <a href="mailto:info@brandagent.ch" class="text-purple-700 hover:text-purple-800 font-medium">
+                                        info@brandagent.ch
+                                    </a>
+                                </div>
+                                
+                                <!-- Telefon -->
+                                <div>
+                                    <h4 class="text-sm font-medium text-gray-900 mb-2">Telefon</h4>
+                                    <a href="tel:+41412345678" class="text-purple-700 hover:text-purple-800 font-medium">
+                                        +41 41 234 56 78
+                                    </a>
+                                </div>
+                                
+                                <!-- Adresse -->
+                                <div>
+                                    <h4 class="text-sm font-medium text-gray-900 mb-2">Adresse</h4>
+                                    <address class="text-gray-700 not-italic">
+                                        Brand Agent GmbH<br>
+                                        Waldetenstrasse 23<br>
+                                        6343 Rotkreuz<br>
+                                        Schweiz
+                                    </address>
+                                </div>
+                                
+                                
+                                <!-- Antwortzeit -->
+                                <div class="pt-4 border-t border-gray-200">
+                                    <p class="text-sm text-gray-600">
+                                        <strong>Antwortzeit:</strong><br>
+                                        In der Regel Antwort innerhalb von 24 Stunden.
+                                    </p>
+                                </div>
+                                
+                                <!-- Social Links -->
+                                <div class="pt-4 border-t border-gray-200">
+                                    <h4 class="text-sm font-medium text-gray-900 mb-3">Folgen Sie uns</h4>
+                                    <a href="https://www.linkedin.com/company/brandagentgmbh/" target="_blank" rel="noopener" 
+                                       class="inline-flex items-center text-purple-700 hover:text-purple-800 font-medium"
+                                       aria-label="LinkedIn Profil">
+                                        LinkedIn →
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- FAQ Sektion -->
+        <section class="py-12 md:py-16 lg:py-24 bg-gray-50">
+            <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+                <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 text-center mb-12">Häufig gestellte Fragen</h2>
+                <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                    <div class="bg-white rounded-2xl p-6 shadow-sm">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Wie schnell erhalten wir eine Antwort?</h3>
+                        <p class="text-gray-700 leading-relaxed">Wir bemühen uns, alle Anfragen innerhalb von 24 Stunden (an Werktagen) zu beantworten. Bei komplexeren Anfragen kann es gelegentlich etwas länger dauern.</p>
+                    </div>
+                    <div class="bg-white rounded-2xl p-6 shadow-sm">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Kann ich einen Beratungstermin vereinbaren?</h3>
+                        <p class="text-gray-700 leading-relaxed">Ja, wir bieten kostenlose Erstberatungen an. Sie können über das Kontaktformular einen Termin anfragen oder uns direkt per E-Mail kontaktieren.</p>
+                    </div>
+                    <div class="bg-white rounded-2xl p-6 shadow-sm">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Arbeiten Sie auch international?</h3>
+                        <p class="text-gray-700 leading-relaxed">Ja, wir arbeiten sowohl in der Schweiz als auch international. Unsere digitalen Lösungen sind überall einsetzbar.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div>
+                <div class="footer-logo">Brand Agent GmbH</div>
+                <p class="footer-description">Ihr Partner für erfolgreiche E-Commerce-Strategien, Onlineshop-Entwicklung und individuelle Automatisierungslösungen. Wir verbinden Beratung, Design und Technologie, damit Ihre digitalen Prozesse effizienter laufen und Ihre Marke nachhaltig wächst.</p>
+                <div class="footer-social">
+                    <a href="https://www.linkedin.com/company/brandagentgmbh/" target="_blank" aria-label="LinkedIn"><span>in</span></a>
+                </div>
+            </div>
+            <div>
+                <h3 class="footer-title">Links</h3>
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="brands.html">Brands</a>
+                    <a href="agents.html">Agents</a>
+                    <a href="kontakt.html">Kontakt</a>
+                </div>
+            </div>
+            <div>
+                <h3 class="footer-title">Kontakt</h3>
+                <div class="footer-links">
+                    <a>Brand Agent GmbH</a>
+                    <a>Waldetenstrasse 23, 6343 Rotkreuz</a>
+                    <a>UID: CHE-204.407.181</a>
+                    <a href="mailto:info@brandagent.ch">info@brandagent.ch</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-copyright">&copy; 2025 Brand Agent GmbH. Alle Rechte vorbehalten.</div>
+        </div>
+    </footer>
+    
+    <script>
+        // Mobile Menu Toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+            
+            hamburger.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+            });
+            
+            // Form Validation
+            const form = document.getElementById('contactForm');
+            const submitBtn = document.getElementById('submitBtn');
+            const successMessage = document.getElementById('successMessage');
+            
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Reset previous errors
+                clearErrors();
+                
+                // Validate form
+                let isValid = true;
+                
+                // Name validation
+                const name = document.getElementById('name');
+                if (!name.value.trim()) {
+                    showError('name', 'Bitte geben Sie Ihren Namen ein.');
+                    isValid = false;
+                }
+                
+                // Email validation
+                const email = document.getElementById('email');
+                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!email.value.trim()) {
+                    showError('email', 'Bitte geben Sie Ihre E-Mail-Adresse ein.');
+                    isValid = false;
+                } else if (!emailPattern.test(email.value)) {
+                    showError('email', 'Bitte geben Sie eine gültige E-Mail-Adresse ein.');
+                    isValid = false;
+                }
+                
+                // Subject validation
+                const subject = document.getElementById('subject');
+                if (!subject.value) {
+                    showError('subject', 'Bitte wählen Sie ein Thema aus.');
+                    isValid = false;
+                }
+                
+                // Message validation
+                const message = document.getElementById('message');
+                if (!message.value.trim()) {
+                    showError('message', 'Bitte geben Sie eine Nachricht ein.');
+                    isValid = false;
+                }
+                
+                // Privacy validation
+                const privacy = document.getElementById('privacy');
+                if (!privacy.checked) {
+                    showError('privacy', 'Bitte stimmen Sie der Datenschutzerklärung zu.');
+                    isValid = false;
+                }
+                
+                // Honeypot check
+                const honeypot = document.querySelector('input[name="website"]');
+                if (honeypot.value) {
+                    return; // Spam detected
+                }
+                
+                if (isValid) {
+                    // Simulate form submission
+                    submitBtn.disabled = true;
+                    submitBtn.textContent = 'Wird gesendet...';
+                    
+                    setTimeout(() => {
+                        form.style.display = 'none';
+                        successMessage.classList.remove('hidden');
+                        submitBtn.disabled = false;
+                        submitBtn.textContent = 'Nachricht senden';
+                    }, 1500);
+                } else {
+                    // Focus first error field
+                    const firstError = document.querySelector('[aria-invalid="true"]');
+                    if (firstError) {
+                        firstError.focus();
+                    }
+                }
+            });
+            
+            function showError(fieldId, message) {
+                const field = document.getElementById(fieldId);
+                const errorDiv = document.getElementById(fieldId + '-error');
+                
+                field.setAttribute('aria-invalid', 'true');
+                field.classList.add('border-red-500');
+                errorDiv.textContent = message;
+                errorDiv.classList.remove('hidden');
+            }
+            
+            function clearErrors() {
+                const errorFields = document.querySelectorAll('[aria-invalid="true"]');
+                const errorMessages = document.querySelectorAll('[id$="-error"]');
+                
+                errorFields.forEach(field => {
+                    field.removeAttribute('aria-invalid');
+                    field.classList.remove('border-red-500');
+                });
+                
+                errorMessages.forEach(message => {
+                    message.classList.add('hidden');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
