@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Partnerprogramm - Brand Agent GmbH</title>
-    <link rel="icon" href="/api/placeholder/32/32" type="image/x-icon">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="Image/BA Icon Schwarz auf Weiss.png">
+    <link rel="shortcut icon" type="image/png" href="Image/BA Icon Schwarz auf Weiss.png">
+    <link rel="apple-touch-icon" href="Image/BA Icon Schwarz auf Weiss.png">
     <style>
         /* Globale Stile */
         :root {
@@ -61,6 +64,18 @@
             font-weight: 700;
             color: var(--primary-color);
             max-width: 280px;
+        }
+        
+        .logo-link {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+        
+        .logo-link:hover {
+            opacity: 0.8;
         }
         
         .logo img {
@@ -271,18 +286,111 @@
             .partner-hero { padding: 3rem 1rem; }
         }
         
-        /* Responsives Design */
+        /* Mobile Optimierung - Tablet (768px - 1024px) */
+        @media (max-width: 1024px) {
+            /* Typografie */
+            h1 {
+                font-size: 2.25rem;
+                line-height: 1.2;
+            }
+            
+            h2 {
+                font-size: 1.75rem;
+                line-height: 1.3;
+            }
+            
+            p {
+                font-size: 1rem;
+                line-height: 1.5;
+            }
+            
+            /* Sections */
+            section {
+                padding: 3rem 2rem;
+            }
+            
+            /* Grid Layouts */
+            .grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            /* CTAs */
+            .cta-btn, a[class*="bg-purple"] {
+                min-height: 44px;
+                padding: 0.75rem 1.5rem;
+                font-size: 1rem;
+            }
+        }
+        
+        /* Mobile Optimierung - Smartphone (480px - 768px) */
         @media (max-width: 768px) {
-            .page-header h1 { font-size: 2.5rem; }
-            .intro h2, .agent-content h3, .faq-section h2 { font-size: 2rem; }
-            .nav-links { display: none; position: absolute; top: 100%; left: 0; width: 100%; background-color: white; flex-direction: column; padding: 1rem 2rem; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); }
-            .nav-links.active { display: flex; }
-            .mobile-menu { display: block; }
-            .cta { padding: 2rem; }
-            .agent-section { direction: ltr; }
-            .agent-section:nth-child(even) { direction: ltr; }
-            .agent-image { margin-bottom: 2rem; }
-            .offer-banner { grid-template-columns: 1fr; }
+            /* Typografie */
+            h1 {
+                font-size: 2rem;
+                line-height: 1.2;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+                line-height: 1.3;
+            }
+            
+            p {
+                font-size: 1rem;
+                line-height: 1.5;
+            }
+            
+            /* Sections */
+            section {
+                padding: 2rem 1.5rem;
+            }
+            
+            /* CTAs */
+            .cta-btn, a[class*="bg-purple"] {
+                width: 100%;
+                min-height: 44px;
+                padding: 0.875rem 1.5rem;
+                font-size: 1rem;
+            }
+        }
+        
+        /* Mobile Optimierung - Small Mobile (≤ 480px) */
+        @media (max-width: 480px) {
+            /* Typografie */
+            h1 {
+                font-size: 1.75rem;
+                line-height: 1.2;
+            }
+            
+            h2 {
+                font-size: 1.375rem;
+                line-height: 1.3;
+            }
+            
+            p {
+                font-size: 0.9375rem;
+                line-height: 1.5;
+            }
+            
+            /* Sections */
+            section {
+                padding: 1.5rem 1rem;
+            }
+            
+            /* CTAs */
+            .cta-btn, a[class*="bg-purple"] {
+                width: 100%;
+                min-height: 44px;
+                padding: 0.75rem 1rem;
+                font-size: 0.9375rem;
+            }
+            
+            /* Touch Targets */
+            a, button {
+                min-height: 44px;
+                min-width: 44px;
+            }
         }
     </style>
 </head>
@@ -291,14 +399,16 @@
     <nav>
         <div class="nav-container">
             <div class="logo">
-                <img src="Image/logo2.png" alt="Brand Agent Logo">
+                <a href="/" class="logo-link">
+                    <img src="Image/logo2.png" alt="Brand Agent Logo">
+                </a>
             </div>
             <div class="nav-links">
-                <a href="index.html">Home</a>
-                <a href="brands.html">Brands</a>
-                <a href="agents.html">Agents</a>
-                <a href="partnerprogramm.html" class="active">Partnerprogramm</a>
-                <a href="kontakt.html">Kontakt</a>
+                <a href="/">Home</a>
+                <a href="/brands">Brands</a>
+                <a href="/agents">Agents</a>
+                <a href="/partnerprogramm" class="active">Partnerprogramm</a>
+                <a href="/kontakt">Kontakt</a>
             </div>
             <div class="mobile-menu">☰</div>
         </div>
@@ -399,11 +509,11 @@
             <div>
                 <h3 class="footer-title">Links</h3>
                 <div class="footer-links">
-                    <a href="index.html">Home</a>
-                    <a href="brands.html">Brands</a>
-                    <a href="agents.html">Agents</a>
-                    <a href="partnerprogramm.html">Partnerprogramm</a>
-                    <a href="kontakt.html">Kontakt</a>
+                    <a href="/">Home</a>
+                    <a href="/brands">Brands</a>
+                    <a href="/agents">Agents</a>
+                    <a href="/partnerprogramm">Partnerprogramm</a>
+                    <a href="/kontakt">Kontakt</a>
                 </div>
             </div>
             <div>

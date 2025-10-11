@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agents - Brand Agent GmbH</title>
-    <link rel="icon" href="/api/placeholder/32/32" type="image/x-icon">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="Image/BA Icon Schwarz auf Weiss.png">
+    <link rel="shortcut icon" type="image/png" href="Image/BA Icon Schwarz auf Weiss.png">
+    <link rel="apple-touch-icon" href="Image/BA Icon Schwarz auf Weiss.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         /* Globale Stile */
@@ -64,11 +67,16 @@
             max-width: 280px;
         }
         
-        .logo a {
+        .logo-link {
             display: flex;
             align-items: center;
             gap: 0.8rem;
             text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+        
+        .logo-link:hover {
+            opacity: 0.8;
         }
         
         .logo img {
@@ -538,16 +546,60 @@
             animation: fadeIn 1s ease forwards 0.6s;
         }
         
-        /* Responsives Design */
-        @media (max-width: 768px) {
-            .page-header h1 {
-                font-size: 2.5rem;
-            }
-            
-            .intro h2, .agent-content h3, .faq-section h2 {
-                font-size: 2rem;
-            }
-            
+        /* Einheitliches Verhältnis zwischen Text & Bild */
+        .agent-section {
+            display: flex;
+            align-items: center;
+            gap: 48px;
+        }
+        
+        .agent-section .text-container {
+            max-width: 480px;
+            line-height: 1.5;
+        }
+        
+        .agent-section h2,
+        .agent-section h3 {
+            font-size: 1.75rem;
+            line-height: 1.25;
+            margin-bottom: 1.5rem;
+        }
+        
+        .agent-section p {
+            font-size: 1rem;
+            line-height: 1.55;
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Einheitliche Bildgröße und Stil */
+        img.agent-section {
+            width: 100%;
+            max-width: 480px;
+            max-height: 360px;
+            height: auto;
+            object-fit: contain;
+            border-radius: 16px;
+            display: block;
+            margin: 0 auto;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+        }
+        
+        /* Einheitliche Wrapper für alle Bildcontainer */
+        .agent-image-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 400px;
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            padding: 20px;
+        }
+        
+        /* Mobile Optimierung - Tablet (768px - 1024px) */
+        @media (max-width: 1024px) {
+            /* Navigation */
             .nav-links {
                 display: none;
                 position: absolute;
@@ -558,30 +610,236 @@
                 flex-direction: column;
                 padding: 1rem 2rem;
                 box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                gap: 1rem;
             }
             
             .nav-links.active {
                 display: flex;
             }
             
-            .mobile-menu {
-                display: block;
+            .hamburger {
+                display: flex;
             }
             
-            .cta {
-                padding: 2rem;
+            /* Typografie */
+            h1 {
+                font-size: 2.25rem;
+                line-height: 1.2;
             }
             
+            h2 {
+                font-size: 1.75rem;
+                line-height: 1.3;
+            }
+            
+            p {
+                font-size: 1rem;
+                line-height: 1.5;
+            }
+            
+            /* Sections */
+            section {
+                padding: 3rem 2rem;
+            }
+            
+            /* Agent Sections */
             .agent-section {
-                direction: ltr;
+                flex-direction: column;
+                text-align: center;
+                gap: 2rem;
             }
             
-            .agent-section:nth-child(even) {
-                direction: ltr;
+            .agent-section .text-container {
+                max-width: 100%;
             }
             
-            .agent-image {
-                margin-bottom: 2rem;
+            img.agent-section {
+                max-width: 100%;
+                max-height: 280px;
+            }
+            
+            .agent-image-wrapper {
+                height: 320px;
+                padding: 1rem;
+            }
+            
+            /* Grid Layouts */
+            .grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            /* CTAs */
+            .cta-btn, a[class*="bg-purple"] {
+                min-height: 44px;
+                padding: 0.75rem 1.5rem;
+                font-size: 1rem;
+            }
+        }
+        
+        /* Mobile Optimierung - Smartphone (480px - 768px) */
+        @media (max-width: 768px) {
+            /* Navigation */
+            .nav-container {
+                padding: 0 1rem;
+            }
+            
+            .logo span {
+                font-size: 1rem;
+            }
+            
+            /* Typografie */
+            h1 {
+                font-size: 2rem;
+                line-height: 1.2;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+                line-height: 1.3;
+            }
+            
+            p {
+                font-size: 1rem;
+                line-height: 1.5;
+            }
+            
+            /* Sections */
+            section {
+                padding: 2rem 1.5rem;
+            }
+            
+            /* Agent Sections */
+            .agent-section {
+                gap: 1.5rem;
+            }
+            
+            .agent-section h2 {
+                font-size: 1.5rem;
+            }
+            
+            img.agent-section {
+                max-width: 100%;
+                max-height: 240px;
+            }
+            
+            .agent-image-wrapper {
+                height: auto;
+                padding: 1rem;
+                min-height: 240px;
+            }
+            
+            /* CTAs */
+            .cta-btn, a[class*="bg-purple"] {
+                width: 100%;
+                min-height: 44px;
+                padding: 0.875rem 1.5rem;
+                font-size: 1rem;
+            }
+        }
+        
+        /* Mobile Optimierung - Small Mobile (≤ 480px) */
+        @media (max-width: 480px) {
+            /* Navigation */
+            .nav-container {
+                padding: 0 1rem;
+            }
+            
+            /* Typografie */
+            h1 {
+                font-size: 1.75rem;
+                line-height: 1.2;
+            }
+            
+            h2 {
+                font-size: 1.375rem;
+                line-height: 1.3;
+            }
+            
+            p {
+                font-size: 0.9375rem;
+                line-height: 1.5;
+            }
+            
+            /* Sections */
+            section {
+                padding: 1.5rem 1rem;
+            }
+            
+            /* Agent Sections */
+            .agent-section {
+                gap: 1.25rem;
+            }
+            
+            .agent-section h2 {
+                font-size: 1.375rem;
+            }
+            
+            img.agent-section {
+                max-width: 100%;
+                max-height: 200px;
+            }
+            
+            .agent-image-wrapper {
+                height: auto;
+                padding: 0.75rem;
+                min-height: 200px;
+                border-radius: 12px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            }
+            
+            /* CTAs */
+            .cta-btn, a[class*="bg-purple"] {
+                width: 100%;
+                min-height: 44px;
+                padding: 0.75rem 1rem;
+                font-size: 0.9375rem;
+            }
+            
+            /* Touch Targets */
+            a, button {
+                min-height: 44px;
+                min-width: 44px;
+            }
+        }
+        
+        /* Extra Small Mobile (≤ 375px) */
+        @media (max-width: 375px) {
+            /* Sections */
+            section {
+                padding: 1.25rem 0.875rem;
+            }
+            
+            /* Typografie */
+            h1 {
+                font-size: 1.625rem;
+                line-height: 1.2;
+            }
+            
+            h2 {
+                font-size: 1.25rem;
+                line-height: 1.3;
+            }
+            
+            p {
+                font-size: 0.875rem;
+                line-height: 1.5;
+            }
+            
+            /* Agent Sections */
+            .agent-section h2 {
+                font-size: 1.25rem;
+            }
+            
+            .agent-image-wrapper {
+                padding: 0.5rem;
+                min-height: 180px;
+            }
+            
+            /* CTAs */
+            .cta-btn, a[class*="bg-purple"] {
+                padding: 0.75rem 0.875rem;
+                font-size: 0.875rem;
             }
         }
     </style>
@@ -591,14 +849,16 @@
     <nav>
         <div class="nav-container">
             <div class="logo">
-                <img src="Image/logo2.png" alt="Brand Agent Logo">
+                <a href="/" class="logo-link">
+                    <img src="Image/logo2.png" alt="Brand Agent Logo">
+                </a>
             </div>
             <div class="nav-links">
-                <a href="index.html">Home</a>
-                <a href="brands.html">Brands</a>
-                <a href="agents.html" class="active">Agents</a>
-                <a href="partnerprogramm.html">Partnerprogramm</a>
-                <a href="kontakt.html">Kontakt</a>
+                <a href="/">Home</a>
+                <a href="/brands">Brands</a>
+                <a href="/agents" class="active">Agents</a>
+                <a href="/partnerprogramm">Partnerprogramm</a>
+                <a href="/kontakt">Kontakt</a>
             </div>
             <div class="hamburger">
                 <span></span>
@@ -619,19 +879,105 @@
                 <li class="flex items-start gap-3"><span aria-hidden="true" class="mt-1 inline-block h-2.5 w-2.5 rounded-full bg-purple-700"></span><span class="text-gray-800 text-base leading-relaxed">Persönlicher Support durch Experten</span></li>
             </ul>
             <div class="mt-8">
-                <a href="kontakt.html" aria-label="Kostenloses Erstgespräch vereinbaren" class="w-full sm:w-auto inline-flex items-center justify-center rounded-xl px-6 py-3 text-base font-semibold text-white bg-purple-700 hover:bg-purple-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-700">Vereinbaren Sie ein kostenloses Erstgespräch</a>
+                <a href="/kontakt" aria-label="Kostenloses Erstgespräch vereinbaren" class="w-full sm:w-auto inline-flex items-center justify-center rounded-xl px-6 py-3 text-base font-semibold text-white bg-purple-700 hover:bg-purple-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-700">Vereinbaren Sie ein kostenloses Erstgespräch</a>
             </div>
         </div>
     </header>
     
-    <!-- DIGITAL AGENT SECTION -->
-    <section class="py-12 md:py-16 lg:py-24 bg-white">
+    <!-- LEADGENERIERUNG SECTION -->
+    <section class="pt-8 pb-12 md:pt-10 md:pb-16 lg:pt-12 lg:pb-24 bg-white">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="grid lg:grid-cols-2 gap-8 items-center">
                 <div class="order-2 lg:order-1">
-                    <img src="Image/Digital.png" alt="Digital Agent Illustration" class="w-full h-auto rounded-2xl shadow-lg object-cover">
+                    <div class="agent-image-wrapper">
+                        <img src="Image/Leadgenerierung.png" alt="Leadgenerierung für Firmengründungen Illustration" class="agent-section">
+                    </div>
                 </div>
-                <div class="order-1 lg:order-2">
+                <div class="order-1 lg:order-2 text-container">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-gray-900">Neukundengewinnung bei Neugründungen</h2>
+                    <p class="mt-6 text-base sm:text-lg text-gray-700 leading-relaxed">Wir unterstützen Unternehmen dabei, gezielt neue Neugründungen als potenzielle Kundschaft zu identifizieren und anzusprechen. Mit intelligenten Prozessen zur Erfassung und Bewertung von Leads sowie der Integration in bestehende CRM- und Marketing-Systeme entsteht ein nachhaltiger Log-in-Effekt, der Kunden langfristig an die Plattform oder das Angebot bindet.</p>
+                    <ul class="mt-6 space-y-3">
+                        <li class="flex items-start gap-3">
+                            <span aria-hidden="true" class="mt-1 inline-block h-2.5 w-2.5 rounded-full bg-purple-700"></span>
+                            <span class="text-gray-700 text-base leading-relaxed">Identifikation neuer Neugründungen</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span aria-hidden="true" class="mt-1 inline-block h-2.5 w-2.5 rounded-full bg-purple-700"></span>
+                            <span class="text-gray-700 text-base leading-relaxed">Lead-Scoring und Qualifizierung in Echtzeit</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span aria-hidden="true" class="mt-1 inline-block h-2.5 w-2.5 rounded-full bg-purple-700"></span>
+                            <span class="text-gray-700 text-base leading-relaxed">Direkte Integration in CRM- und Mailing-Systeme</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span aria-hidden="true" class="mt-1 inline-block h-2.5 w-2.5 rounded-full bg-purple-700"></span>
+                            <span class="text-gray-700 text-base leading-relaxed">Log-in-Effekt durch personalisierte Kundenbindung</span>
+                        </li>
+                    </ul>
+                    <div class="mt-8">
+                        <a href="/kontakt" class="w-full sm:w-auto inline-flex items-center justify-center rounded-xl px-6 py-3 text-base font-semibold text-white bg-purple-700 hover:bg-purple-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-700">Mehr erfahren</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SMART VIDEO AGENT SECTION -->
+    <section class="py-10 md:py-14 lg:py-20 bg-gray-50">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-8 items-center">
+                <div class="order-2 lg:order-1">
+                    <div class="agent-image-wrapper">
+                        <img src="Image/SVA.png" alt="Smart Video Agent Illustration" class="agent-section">
+                    </div>
+                </div>
+                <div class="order-1 lg:order-2 text-container">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-gray-900">Smart Video Agent</h2>
+                    <p class="mt-6 text-base sm:text-lg text-gray-700 leading-relaxed">Erstellen Sie automatisch Videos aus einem Online-Formular und veröffentlichen Sie diese direkt auf mehreren Plattformen – ohne technisches Vorwissen oder Mehraufwand.</p>
+                    <ul class="mt-6 space-y-3">
+                        <li class="flex items-start gap-3">
+                            <span aria-hidden="true" class="mt-1 inline-block h-2.5 w-2.5 rounded-full bg-purple-700"></span>
+                            <span class="text-gray-700 text-base leading-relaxed">Automatische Videoerstellung aus Formularen</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span aria-hidden="true" class="mt-1 inline-block h-2.5 w-2.5 rounded-full bg-purple-700"></span>
+                            <span class="text-gray-700 text-base leading-relaxed">Direkter Upload auf alle wichtigen Plattformen</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span aria-hidden="true" class="mt-1 inline-block h-2.5 w-2.5 rounded-full bg-purple-700"></span>
+                            <span class="text-gray-700 text-base leading-relaxed">Keine Videobearbeitungskenntnisse erforderlich</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span aria-hidden="true" class="mt-1 inline-block h-2.5 w-2.5 rounded-full bg-purple-700"></span>
+                            <span class="text-gray-700 text-base leading-relaxed">Kostengünstiger als manuelle Produktion</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span aria-hidden="true" class="mt-1 inline-block h-2.5 w-2.5 rounded-full bg-purple-700"></span>
+                            <span class="text-gray-700 text-base leading-relaxed">Mehr Content in kürzerer Zeit</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span aria-hidden="true" class="mt-1 inline-block h-2.5 w-2.5 rounded-full bg-purple-700"></span>
+                            <span class="text-gray-700 text-base leading-relaxed">Höhere Sichtbarkeit durch strategische Postings</span>
+                        </li>
+                    </ul>
+                    <div class="mt-8">
+                        <a href="/kontakt" class="w-full sm:w-auto inline-flex items-center justify-center rounded-xl px-6 py-3 text-base font-semibold text-white bg-purple-700 hover:bg-purple-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-700">Mehr erfahren</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DIGITAL AGENT SECTION -->
+    <section class="py-10 md:py-14 lg:py-20 bg-white">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-8 items-center">
+                <div class="order-2 lg:order-1">
+                    <div class="agent-image-wrapper">
+                        <img src="Image/Digital.png" alt="Digital Agent Illustration" class="agent-section">
+                    </div>
+                </div>
+                <div class="order-1 lg:order-2 text-container">
                     <h2 class="text-2xl sm:text-3xl font-bold text-gray-900">Individuelle Automatisierungslösungen für Ihr Unternehmen</h2>
                     <p class="mt-6 text-base sm:text-lg text-gray-700 leading-relaxed">Wir entwickeln massgeschneiderte Automatisierungs-Agents, die Ihre Geschäftsprozesse vereinfachen und beschleunigen. Ob Support, Routing oder spezifische Workflows – wir liefern die Lösung, die zu Ihrem Bedarf passt.</p>
                     <ul class="mt-6 space-y-3">
@@ -653,52 +999,8 @@
                         </li>
                     </ul>
                     <div class="mt-8">
-                        <a href="kontakt.html" class="w-full sm:w-auto inline-flex items-center justify-center rounded-xl px-6 py-3 text-base font-semibold text-white bg-purple-700 hover:bg-purple-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-700">Mehr erfahren</a>
-                        </div>
-                        </div>
-                        </div>
-                        </div>
-    </section>
-
-    <!-- SMART VIDEO AGENT SECTION -->
-    <section class="py-16 lg:py-24 bg-gray-50">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div class="grid lg:grid-cols-2 gap-8 items-center">
-                <div>
-                    <h2 class="text-3xl font-bold text-gray-900">Smart Video Agent</h2>
-                    <p class="mt-6 text-lg text-gray-700">Erstellen Sie automatisch Videos aus einem Online-Formular und veröffentlichen Sie diese direkt auf mehreren Plattformen – ohne technisches Vorwissen oder Mehraufwand.</p>
-                    <ul class="mt-6 space-y-3">
-                        <li class="flex items-start gap-3">
-                            <span aria-hidden="true" class="mt-1 inline-block h-2.5 w-2.5 rounded-full bg-purple-700"></span>
-                            <span class="text-gray-700">Automatische Videoerstellung aus Formularen</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span aria-hidden="true" class="mt-1 inline-block h-2.5 w-2.5 rounded-full bg-purple-700"></span>
-                            <span class="text-gray-700">Direkter Upload auf alle wichtigen Plattformen</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span aria-hidden="true" class="mt-1 inline-block h-2.5 w-2.5 rounded-full bg-purple-700"></span>
-                            <span class="text-gray-700">Keine Videobearbeitungskenntnisse erforderlich</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span aria-hidden="true" class="mt-1 inline-block h-2.5 w-2.5 rounded-full bg-purple-700"></span>
-                            <span class="text-gray-700">Kostengünstiger als manuelle Produktion</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span aria-hidden="true" class="mt-1 inline-block h-2.5 w-2.5 rounded-full bg-purple-700"></span>
-                            <span class="text-gray-700">Mehr Content in kürzerer Zeit</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span aria-hidden="true" class="mt-1 inline-block h-2.5 w-2.5 rounded-full bg-purple-700"></span>
-                            <span class="text-gray-700">Höhere Sichtbarkeit durch strategische Postings</span>
-                        </li>
-                    </ul>
-                    <div class="mt-8">
-                        <a href="kontakt.html" class="inline-flex items-center justify-center rounded-xl px-6 py-3 text-base font-semibold text-white bg-purple-700 hover:bg-purple-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-700">Mehr erfahren</a>
+                        <a href="/kontakt" class="w-full sm:w-auto inline-flex items-center justify-center rounded-xl px-6 py-3 text-base font-semibold text-white bg-purple-700 hover:bg-purple-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-700">Mehr erfahren</a>
                     </div>
-                </div>
-                <div>
-                    <img src="Image/SVA.png" alt="Smart Video Agent Illustration" class="w-full rounded-2xl shadow-lg object-cover">
                 </div>
             </div>
         </div>
@@ -715,17 +1017,17 @@
                     <div class="rounded-2xl border border-gray-200 p-6 bg-white">
                         <h3 class="text-xl font-semibold text-gray-900">Prozessautomatisierung</h3>
                         <p class="mt-2 text-gray-600">Digitale Workflows statt Papierkram – wir gestalten Ihre Abläufe effizienter.</p>
-                        <a href="kontakt.html" class="mt-4 inline-flex items-center justify-center rounded-xl px-4 py-2 text-sm font-semibold text-purple-700 border border-purple-700 hover:bg-purple-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-700">Mehr erfahren</a>
+                        <a href="/kontakt" class="mt-4 inline-flex items-center justify-center rounded-xl px-4 py-2 text-sm font-semibold text-purple-700 border border-purple-700 hover:bg-purple-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-700">Mehr erfahren</a>
                 </div>
                     <div class="rounded-2xl border border-gray-200 p-6 bg-white">
                         <h3 class="text-xl font-semibold text-gray-900">E-Commerce & Markenportale</h3>
                         <p class="mt-2 text-gray-600">Onlineshops, die funktionieren: von der technischen Basis bis zum individuellen Branding.</p>
-                        <a href="brands.html" class="mt-4 inline-flex items-center justify-center rounded-xl px-4 py-2 text-sm font-semibold text-purple-700 border border-purple-700 hover:bg-purple-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-700">Mehr erfahren</a>
+                        <a href="/brands" class="mt-4 inline-flex items-center justify-center rounded-xl px-4 py-2 text-sm font-semibold text-purple-700 border border-purple-700 hover:bg-purple-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-700">Mehr erfahren</a>
                         </div>
                     <div class="rounded-2xl border border-gray-200 p-6 bg-white">
                         <h3 class="text-xl font-semibold text-gray-900">Branding & Design</h3>
                         <p class="mt-2 text-gray-600">Starke Marken brauchen eine klare Identität – wir entwickeln Design & Markenstrategie.</p>
-                        <a href="kontakt.html" class="mt-4 inline-flex items-center justify-center rounded-xl px-4 py-2 text-sm font-semibold text-purple-700 border border-purple-700 hover:bg-purple-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-700">Mehr erfahren</a>
+                        <a href="/kontakt" class="mt-4 inline-flex items-center justify-center rounded-xl px-4 py-2 text-sm font-semibold text-purple-700 border border-purple-700 hover:bg-purple-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-700">Mehr erfahren</a>
                     </div>
                 </div>
             </div>
@@ -735,7 +1037,7 @@
         <section class="py-12 bg-gray-900">
             <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 text-center">
                 <p class="text-white text-lg">Bereit, Ihre Prozesse aufs nächste Level zu bringen?</p>
-                <a href="kontakt.html" class="mt-5 inline-flex items-center justify-center rounded-2xl px-6 py-3 text-base font-semibold text-white bg-purple-700 hover:bg-purple-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-700">Jetzt Projekt starten</a>
+                <a href="/kontakt" class="mt-5 inline-flex items-center justify-center rounded-2xl px-6 py-3 text-base font-semibold text-white bg-purple-700 hover:bg-purple-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-700">Jetzt Projekt starten</a>
             </div>
         </section>
 
@@ -775,10 +1077,10 @@
             <div>
                 <h3 class="footer-title">Links</h3>
                 <div class="footer-links">
-                    <a href="index.html">Home</a>
-                    <a href="brands.html">Brands</a>
-                    <a href="agents.html">Agents</a>
-                    <a href="kontakt.html">Kontakt</a>
+                    <a href="/">Home</a>
+                    <a href="/brands">Brands</a>
+                    <a href="/agents">Agents</a>
+                    <a href="/kontakt">Kontakt</a>
                 </div>
             </div>
             <div>
