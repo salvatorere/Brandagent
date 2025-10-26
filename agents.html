@@ -108,6 +108,11 @@
             color: var(--primary-color);
         }
         
+        .mobile-menu {
+            display: none;
+            cursor: pointer;
+        }
+        
         .hamburger {
             display: none;
             cursor: pointer;
@@ -573,15 +578,14 @@
         
         /* Einheitliche Bildgröße und Stil */
         img.agent-section {
-            width: 100%;
-            max-width: 480px;
-            max-height: 360px;
-            height: auto;
+            width: 244%;
+            height: 244%;
             object-fit: contain;
-            border-radius: 16px;
+            border-radius: 0;
             display: block;
             margin: 0 auto;
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+            box-shadow: none;
+            background: transparent;
         }
         
         /* Einheitliche Wrapper für alle Bildcontainer */
@@ -590,11 +594,11 @@
             align-items: center;
             justify-content: center;
             height: 400px;
-            background: #fff;
-            border-radius: 16px;
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
-            overflow: hidden;
-            padding: 20px;
+            background: transparent;
+            border-radius: 0;
+            box-shadow: none;
+            overflow: visible;
+            padding: 0;
         }
         
         /* Mobile Optimierung - Tablet (768px - 1024px) */
@@ -850,7 +854,7 @@
         <div class="nav-container">
             <div class="logo">
                 <a href="/" class="logo-link">
-                    <img src="Image/logo2.png" alt="Brand Agent Logo">
+                <img src="Image/logo2.png" alt="Brand Agent Logo">
                 </a>
             </div>
             <div class="nav-links">
@@ -884,15 +888,53 @@
         </div>
     </header>
     
+    <!-- DIGITAL AGENT SECTION -->
+    <section class="py-10 md:py-14 lg:py-20 bg-white">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-8 items-center">
+                <div class="order-2 lg:order-1">
+                    <div class="agent-image-wrapper">
+                        <img src="Image/Network-Automation.png" alt="Digital Agent Illustration" class="agent-section">
+                </div>
+                        </div>
+                <div class="order-1 lg:order-2 text-container">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-gray-900">Individuelle Automatisierungslösungen für Ihr Unternehmen</h2>
+                    <p class="mt-6 text-base sm:text-lg text-gray-700 leading-relaxed">Wir entwickeln massgeschneiderte Automatisierungs-Agents, die Ihre Geschäftsprozesse vereinfachen und beschleunigen. Ob Support, Routing oder spezifische Workflows – wir liefern die Lösung, die zu Ihrem Bedarf passt.</p>
+                    <ul class="mt-6 space-y-3">
+                        <li class="flex items-start gap-3">
+                            <span aria-hidden="true" class="mt-1 inline-block h-2.5 w-2.5 rounded-full bg-purple-700"></span>
+                            <span class="text-gray-700 text-base leading-relaxed">Automatisierung ohne manuelles Eingreifen</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span aria-hidden="true" class="mt-1 inline-block h-2.5 w-2.5 rounded-full bg-purple-700"></span>
+                            <span class="text-gray-700 text-base leading-relaxed">Unterstützung mehrerer Sprachen und Szenarien</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span aria-hidden="true" class="mt-1 inline-block h-2.5 w-2.5 rounded-full bg-purple-700"></span>
+                            <span class="text-gray-700 text-base leading-relaxed">Nahtlose Integration in bestehende Systeme</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span aria-hidden="true" class="mt-1 inline-block h-2.5 w-2.5 rounded-full bg-purple-700"></span>
+                            <span class="text-gray-700 text-base leading-relaxed">Optimierung durch Auswertung realer Nutzungsdaten</span>
+                        </li>
+                    </ul>
+                    <div class="mt-8">
+                        <a href="/kontakt" class="w-full sm:w-auto inline-flex items-center justify-center rounded-xl px-6 py-3 text-base font-semibold text-white bg-purple-700 hover:bg-purple-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-700">Mehr erfahren</a>
+                        </div>
+                        </div>
+                        </div>
+                    </div>
+    </section>
+    
     <!-- LEADGENERIERUNG SECTION -->
     <section class="pt-8 pb-12 md:pt-10 md:pb-16 lg:pt-12 lg:pb-24 bg-white">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="grid lg:grid-cols-2 gap-8 items-center">
                 <div class="order-2 lg:order-1">
                     <div class="agent-image-wrapper">
-                        <img src="Image/Leadgenerierung.png" alt="Leadgenerierung für Firmengründungen Illustration" class="agent-section">
-                    </div>
+                        <img src="Image/zefix bild webseite1.png" alt="Leadgenerierung für Firmengründungen Illustration" class="agent-section">
                 </div>
+            </div>
                 <div class="order-1 lg:order-2 text-container">
                     <h2 class="text-2xl sm:text-3xl font-bold text-gray-900">Neukundengewinnung bei Neugründungen</h2>
                     <p class="mt-6 text-base sm:text-lg text-gray-700 leading-relaxed">Wir unterstützen Unternehmen dabei, gezielt neue Neugründungen als potenzielle Kundschaft zu identifizieren und anzusprechen. Mit intelligenten Prozessen zur Erfassung und Bewertung von Leads sowie der Integration in bestehende CRM- und Marketing-Systeme entsteht ein nachhaltiger Log-in-Effekt, der Kunden langfristig an die Plattform oder das Angebot bindet.</p>
@@ -916,10 +958,10 @@
                     </ul>
                     <div class="mt-8">
                         <a href="/kontakt" class="w-full sm:w-auto inline-flex items-center justify-center rounded-xl px-6 py-3 text-base font-semibold text-white bg-purple-700 hover:bg-purple-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-700">Mehr erfahren</a>
-                    </div>
                 </div>
-            </div>
-        </div>
+                        </div>
+                        </div>
+                        </div>
     </section>
 
     <!-- SMART VIDEO AGENT SECTION -->
@@ -928,9 +970,9 @@
             <div class="grid lg:grid-cols-2 gap-8 items-center">
                 <div class="order-2 lg:order-1">
                     <div class="agent-image-wrapper">
-                        <img src="Image/SVA.png" alt="Smart Video Agent Illustration" class="agent-section">
-                    </div>
-                </div>
+                        <img src="Image/SVA bild Webseite.png" alt="Smart Video Agent Illustration" class="agent-section">
+                        </div>
+                        </div>
                 <div class="order-1 lg:order-2 text-container">
                     <h2 class="text-2xl sm:text-3xl font-bold text-gray-900">Smart Video Agent</h2>
                     <p class="mt-6 text-base sm:text-lg text-gray-700 leading-relaxed">Erstellen Sie automatisch Videos aus einem Online-Formular und veröffentlichen Sie diese direkt auf mehreren Plattformen – ohne technisches Vorwissen oder Mehraufwand.</p>
@@ -962,50 +1004,12 @@
                     </ul>
                     <div class="mt-8">
                         <a href="/kontakt" class="w-full sm:w-auto inline-flex items-center justify-center rounded-xl px-6 py-3 text-base font-semibold text-white bg-purple-700 hover:bg-purple-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-700">Mehr erfahren</a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- DIGITAL AGENT SECTION -->
-    <section class="py-10 md:py-14 lg:py-20 bg-white">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div class="grid lg:grid-cols-2 gap-8 items-center">
-                <div class="order-2 lg:order-1">
-                    <div class="agent-image-wrapper">
-                        <img src="Image/Digital.png" alt="Digital Agent Illustration" class="agent-section">
-                    </div>
-                </div>
-                <div class="order-1 lg:order-2 text-container">
-                    <h2 class="text-2xl sm:text-3xl font-bold text-gray-900">Individuelle Automatisierungslösungen für Ihr Unternehmen</h2>
-                    <p class="mt-6 text-base sm:text-lg text-gray-700 leading-relaxed">Wir entwickeln massgeschneiderte Automatisierungs-Agents, die Ihre Geschäftsprozesse vereinfachen und beschleunigen. Ob Support, Routing oder spezifische Workflows – wir liefern die Lösung, die zu Ihrem Bedarf passt.</p>
-                    <ul class="mt-6 space-y-3">
-                        <li class="flex items-start gap-3">
-                            <span aria-hidden="true" class="mt-1 inline-block h-2.5 w-2.5 rounded-full bg-purple-700"></span>
-                            <span class="text-gray-700 text-base leading-relaxed">Automatisierung ohne manuelles Eingreifen</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span aria-hidden="true" class="mt-1 inline-block h-2.5 w-2.5 rounded-full bg-purple-700"></span>
-                            <span class="text-gray-700 text-base leading-relaxed">Unterstützung mehrerer Sprachen und Szenarien</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span aria-hidden="true" class="mt-1 inline-block h-2.5 w-2.5 rounded-full bg-purple-700"></span>
-                            <span class="text-gray-700 text-base leading-relaxed">Nahtlose Integration in bestehende Systeme</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span aria-hidden="true" class="mt-1 inline-block h-2.5 w-2.5 rounded-full bg-purple-700"></span>
-                            <span class="text-gray-700 text-base leading-relaxed">Optimierung durch Auswertung realer Nutzungsdaten</span>
-                        </li>
-                    </ul>
-                    <div class="mt-8">
-                        <a href="/kontakt" class="w-full sm:w-auto inline-flex items-center justify-center rounded-xl px-6 py-3 text-base font-semibold text-white bg-purple-700 hover:bg-purple-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-700">Mehr erfahren</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
+        </section>
+        
         
     <!-- CONTENT nach neuer Struktur -->
     <main>
@@ -1023,14 +1027,14 @@
                         <h3 class="text-xl font-semibold text-gray-900">E-Commerce & Markenportale</h3>
                         <p class="mt-2 text-gray-600">Onlineshops, die funktionieren: von der technischen Basis bis zum individuellen Branding.</p>
                         <a href="/brands" class="mt-4 inline-flex items-center justify-center rounded-xl px-4 py-2 text-sm font-semibold text-purple-700 border border-purple-700 hover:bg-purple-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-700">Mehr erfahren</a>
-                        </div>
+            </div>
                     <div class="rounded-2xl border border-gray-200 p-6 bg-white">
                         <h3 class="text-xl font-semibold text-gray-900">Branding & Design</h3>
                         <p class="mt-2 text-gray-600">Starke Marken brauchen eine klare Identität – wir entwickeln Design & Markenstrategie.</p>
                         <a href="/kontakt" class="mt-4 inline-flex items-center justify-center rounded-xl px-4 py-2 text-sm font-semibold text-purple-700 border border-purple-700 hover:bg-purple-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-700">Mehr erfahren</a>
-                    </div>
                 </div>
             </div>
+                </div>
         </section>
         
         <!-- BANNER CTA -->
@@ -1040,7 +1044,7 @@
                 <a href="/kontakt" class="mt-5 inline-flex items-center justify-center rounded-2xl px-6 py-3 text-base font-semibold text-white bg-purple-700 hover:bg-purple-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-700">Jetzt Projekt starten</a>
             </div>
         </section>
-
+        
         <!-- STEPS -->
         <section class="py-16 lg:py-24 bg-white">
             <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">

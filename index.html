@@ -630,14 +630,14 @@
             align-items: center;
         }
         
-        .hero-title {
-            font-size: 3.2rem;
-            line-height: 1.1;
-            font-weight: 800;
-            letter-spacing: -0.01em;
-            margin-bottom: 1.2rem;
-            max-width: 14ch;
-        }
+         .hero-title {
+             font-size: 2.24rem;
+             line-height: 1.1;
+             font-weight: 800;
+             letter-spacing: -0.01em;
+             margin-bottom: 1.2rem;
+             max-width: 14ch;
+         }
         
         .hero-subtitle {
             font-size: 1.1rem;
@@ -661,18 +661,19 @@
             text-align: center;
         }
         
-        .hero-media {
-            aspect-ratio: 16/10;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-        }
+         .hero-media {
+             aspect-ratio: 16/10;
+             border-radius: 0;
+             overflow: visible;
+             box-shadow: none;
+         }
         
         .hero-media img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+            width: 244%;
+            height: 244%;
+            object-fit: contain;
             display: block;
+            background: transparent;
         }
         
         /* Hero-spezifische Mobile Optimierung */
@@ -748,7 +749,7 @@
         <div class="nav-container">
             <div class="logo">
                 <a href="/" class="logo-link">
-                    <img src="Image/logo2.png" alt="Brand Agent Logo">
+                <img src="Image/logo2.png" alt="Brand Agent Logo">
                 </a>
             </div>
             <div class="nav-links">
@@ -779,9 +780,9 @@
                         <li class="flex items-start gap-3"><span aria-hidden="true" class="mt-1 inline-block h-2.5 w-2.5 rounded-full bg-purple-700"></span><span class="text-gray-800 text-base leading-relaxed">Persönlicher Support durch Experten</span></li>
                     </ul>
                     <a href="/kontakt" aria-label="Kostenloses Erstgespräch vereinbaren" class="hero-cta w-full sm:w-auto inline-flex items-center justify-center rounded-xl px-6 py-3 text-base font-semibold text-white bg-purple-700 hover:bg-purple-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-700">Vereinbaren Sie ein kostenloses Erstgespräch</a>
-                </div>
+            </div>
                 <div class="hero-media">
-                    <img src="Image/Network-Automation.jpg" alt="Abstrakte Darstellung von Automatisierung">
+                     <img src="Image/Network-Automation.png" alt="Abstrakte Darstellung von Automatisierung">
                 </div>
             </div>
         </div>
