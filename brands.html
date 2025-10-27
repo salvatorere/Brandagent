@@ -8,14 +8,15 @@
     <link rel="icon" type="image/png" href="Image/BA Icon Schwarz auf Weiss.png">
     <link rel="shortcut icon" type="image/png" href="Image/BA Icon Schwarz auf Weiss.png">
     <link rel="apple-touch-icon" href="Image/BA Icon Schwarz auf Weiss.png">
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
         /* Globale Stile */
         :root {
-            --primary-color: #6B46C1;
+            --primary-color: #8a56c9;
             --secondary-color: #86868b;
             --background-color: #f5f5f7;
             --text-color: #1d1d1f;
-            --accent-color: #553C9A;
+            --accent-color: #7040b0;
         }
         
         * {
@@ -84,13 +85,6 @@
             max-width: 100%;
         }
         
-        .logo span {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            white-space: nowrap;
-        }
-        
         .nav-links {
             display: flex;
             gap: 2rem;
@@ -107,420 +101,328 @@
             color: var(--primary-color);
         }
         
-        .mobile-menu {
+        .hamburger {
             display: none;
             cursor: pointer;
+            flex-direction: column;
+            gap: 4px;
         }
         
-        /* Header */
-        .page-header {
-            padding-top: 120px;
-            padding-bottom: 40px;
-            background: linear-gradient(135deg, #f5f5f7 0%, #e0e0e3 100%);
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background-color: var(--text-color);
+            transition: all 0.3s ease;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding-top: 7rem;
+            padding-bottom: 3rem;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #f5f5f7 0%, #e8e8ed 100%);
             text-align: center;
         }
         
-        .page-header h1 {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--text-color);
+        @media (min-width: 768px) {
+            .hero {
+                padding-bottom: 4rem;
+            }
         }
         
-        .page-header p {
-            font-size: 1.2rem;
-            color: var(--secondary-color);
-            max-width: 800px;
-            margin: 0 auto;
-            line-height: 1.6;
-        }
-        
-        /* Hauptcontainer */
-        .container {
+        .hero-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 3rem 2rem;
+            padding: 0 2rem;
         }
         
-        /* Zusammenarbeit-Sektion */
-        .partnership-section {
-            margin-bottom: 3rem;
-            text-align: center;
+        .hero-content {
+            animation: fadeInUp 1s ease-out;
         }
         
-        .partnership-section h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.2;
             margin-bottom: 1.5rem;
             color: var(--text-color);
         }
         
-        .partnership-section p {
+        .hero-subtitle {
             font-size: 1.2rem;
             color: var(--secondary-color);
-            max-width: 800px;
-            margin: 0 auto 2rem;
-            line-height: 1.6;
-        }
-        
-        /* Prozess-Schritte */
-        .process-steps {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 0.8rem;
-            margin-bottom: 2.5rem;
-        }
-        
-        .process-step {
-            background-color: white;
-            border-radius: 20px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
-            padding: 1.2rem;
-            width: 23%;
-            min-width: 215px;
-            flex: 1 1 auto;
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        .process-step:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-        }
-        
-        .step-number {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 50px;
-            height: 50px;
-            background-color: var(--primary-color);
-            color: white;
-            border-radius: 50%;
-            font-size: 1.3rem;
-            font-weight: 700;
-            margin: 0 auto 1rem;
-        }
-        
-        .process-step h3 {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 0.6rem;
-            color: var(--text-color);
-        }
-        
-        .process-step p {
-            color: var(--secondary-color);
-            font-size: 0.9rem;
-            line-height: 1.5;
-        }
-        
-        /* Modelle-Sektion */
-        .models-section {
-            margin-bottom: 3rem;
-        }
-        
-        .models-section h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            text-align: center;
-            color: var(--text-color);
-        }
-        
-        .models-section p {
-            font-size: 1.2rem;
-            color: var(--secondary-color);
-            max-width: 800px;
-            margin: 0 auto 2rem;
-            line-height: 1.6;
-            text-align: center;
-        }
-        
-        .models-grid {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-        }
-        
-        .model-card {
-            background-color: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            width: 580px;
-            flex: 0 0 auto;
-        }
-        
-        .model-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-        }
-        
-        .model-content {
-            padding: 2rem;
-        }
-        
-        .model-title {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: var(--text-color);
-        }
-        
-        .model-description {
-            color: var(--secondary-color);
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-        }
-        
-        .model-benefits {
-            margin-top: 1.5rem;
-        }
-        
-        .model-benefits h4 {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: var(--text-color);
-        }
-        
-        .benefit-item {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 0.8rem;
-        }
-        
-        .benefit-icon {
-            color: var(--primary-color);
-            margin-right: 0.8rem;
-            font-weight: bold;
-        }
-        
-        .benefit-text {
-            color: var(--secondary-color);
-            line-height: 1.5;
-        }
-        
-        /* CTA-Sektion */
-        .cta-section {
-            background-color: white;
-            padding: 3rem;
-            border-radius: 20px;
-            text-align: center;
-            margin-bottom: 3rem;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-        }
-        
-        .cta-section h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            color: var(--text-color);
-        }
-        
-        .cta-section p {
-            font-size: 1.2rem;
-            color: var(--secondary-color);
-            max-width: 800px;
-            margin: 0 auto 2rem;
-            line-height: 1.6;
-        }
-        
-        .cta-btn {
-            background-color: var(--primary-color);
-            color: white;
-            border: none;
-            padding: 1rem 2rem;
-            border-radius: 10px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-        }
-        
-        .cta-btn:hover {
-            background-color: var(--accent-color);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(107, 70, 193, 0.3);
-        }
-        
-        /* FAQ-Sektion */
-        .faq-section {
-            margin-bottom: 3rem;
-        }
-        
-        .faq-section h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
             margin-bottom: 2rem;
-            text-align: center;
-            color: var(--text-color);
+            line-height: 1.6;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
-        .faq-item {
-            background-color: white;
-            border-radius: 10px;
-            margin-bottom: 1rem;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        }
-        
-        .faq-question {
-            padding: 1.5rem;
-            font-weight: 600;
-            cursor: pointer;
+        /* Einheitliches Verhältnis zwischen Text & Bild */
+        .agent-section {
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            transition: background-color 0.3s ease;
+            gap: 48px;
         }
         
-        .faq-question:hover {
-            background-color: rgba(107, 70, 193, 0.05);
+        .agent-section .text-container {
+            max-width: 480px;
+            line-height: 1.5;
         }
         
-        .faq-question::after {
-            content: "+";
-            font-size: 1.5rem;
+        .agent-section h2,
+        .agent-section h3 {
+            font-size: 1.75rem;
+            line-height: 1.25;
+            margin-bottom: 1.5rem;
+        }
+        
+        .agent-section p {
+            font-size: 1rem;
+            line-height: 1.55;
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Einheitliche Bildgröße und Stil */
+        img.agent-section {
+            width: 244%;
+            height: 244%;
+            object-fit: contain;
+            border-radius: 0;
+            display: block;
+            background: transparent;
+        }
+        
+        /* Einheitliche Wrapper für alle Bildcontainer */
+        .agent-image-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 400px;
+            background: transparent;
+            overflow: visible;
+            padding: 0;
+        }
+        
+        /* Button Styles */
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+            text-align: center;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+            box-shadow: 0 4px 15px rgba(138, 86, 201, 0.3);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(138, 86, 201, 0.4);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        /* Unified CTA Section */
+        .cta-section {
+            padding: 4.5rem 0;
+            text-align: center;
+        }
+        
+        .cta-section.agents-variant {
+            background-color: #ffffff;
+            color: #1f2937;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        .cta-section.brands-variant {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+        }
+        
+        .cta-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .cta-title {
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        
+        .cta-subtitle {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            max-width: 720px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+        
+        .cta-button {
+            padding: 1.2rem 2.5rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .cta-section.agents-variant .cta-button {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .cta-section.brands-variant .cta-button {
+            background-color: white;
             color: var(--primary-color);
         }
         
-        .faq-answer {
-            padding: 0 1.5rem;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease, padding 0.3s ease;
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
         }
         
-        .faq-item.active .faq-question::after {
-            content: "−";
+        .cta-section.agents-variant .cta-button:hover {
+            background-color: #4f46e5;
         }
         
-        .faq-item.active .faq-answer {
-            padding: 0 1.5rem 1.5rem;
-            max-height: 500px;
+        .cta-section.brands-variant .cta-button:hover {
+            background-color: #f8fafc;
+            color: var(--primary-color);
         }
         
-        .faq-answer p {
-            color: var(--secondary-color);
-            line-height: 1.6;
+        /* Responsive CTA */
+        @media (max-width: 768px) {
+            .cta-section {
+                padding: 3rem 0;
+            }
+            
+            .cta-button {
+                padding: 1rem 2rem;
+                font-size: 1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .cta-section {
+                padding: 2.5rem 0;
+            }
+            
+            .cta-button {
+                padding: 0.8rem 1.5rem;
+                font-size: 0.9rem;
+            }
         }
         
         /* Footer */
         footer {
-            background-color: var(--text-color);
-            color: white;
-            padding: 4rem 2rem;
+            background-color: #ffffff;
+            color: #111827;
+            padding: 3rem 2rem;
+            border-top: 1px solid #e5e7eb;
+            margin-top: 1.5rem;
+            box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.05);
         }
         
         .footer-content {
             max-width: 1200px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: 1fr 1fr;
             gap: 3rem;
+            align-items: start;
         }
         
-        .footer-logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: white;
-            margin-bottom: 1rem;
-        }
-        
-        .footer-description {
-            color: #aaa;
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-        }
-        
-        .footer-social {
-            display: flex;
-            gap: 1rem;
-        }
-        
-        .footer-social a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background-color: #333;
-            border-radius: 50%;
-            color: white;
-            text-decoration: none;
-            transition: background-color 0.3s ease;
-        }
-        
-        .footer-social a:hover {
-            background-color: var(--primary-color);
-        }
-        
-        .footer-title {
-            font-size: 1.2rem;
+        .footer-section h3 {
+            font-size: 1.125rem;
             font-weight: 600;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
+            color: #111827;
         }
         
         .footer-links {
             display: flex;
             flex-direction: column;
-            gap: 0.8rem;
+            gap: 0.5rem;
         }
         
         .footer-links a {
-            color: #aaa;
+            color: #7c3aed;
             text-decoration: none;
+            font-size: 0.875rem;
             transition: color 0.3s ease;
         }
         
         .footer-links a:hover {
-            color: white;
+            color: #5b21b6;
         }
         
-        .footer-bottom {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding-top: 2rem;
-            margin-top: 3rem;
-            border-top: 1px solid #333;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
+        .footer-contact {
+            color: #6b7280;
+            font-size: 0.875rem;
+            line-height: 1.5;
+            margin-bottom: 0.5rem;
+            text-align: right;
+        }
+        
+        .footer-contact-section {
+            text-align: right;
         }
         
         .footer-copyright {
-            color: #aaa;
+            max-width: 1200px;
+            margin: 2rem auto 0;
+            text-align: center;
+            color: #6b7280;
+            font-size: 0.75rem;
         }
         
-        .footer-legal {
-            display: flex;
-            gap: 1.5rem;
+        /* Responsive Footer */
+        @media (max-width: 768px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .footer-contact,
+            .footer-contact-section {
+                text-align: left;
+            }
+            
+            footer {
+                padding: 2rem 1rem;
+                margin-top: 2rem;
+            }
         }
         
-        .footer-legal a {
-            color: #aaa;
-            text-decoration: none;
-            transition: color 0.3s ease;
-            font-size: 0.9rem;
-        }
-        
-        .footer-legal a:hover {
-            color: white;
-        }
-        
-        /* Animation */
-        @keyframes fadeIn {
+        /* Animations */
+        @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(20px);
+                transform: translateY(30px);
             }
             to {
                 opacity: 1;
@@ -528,40 +430,220 @@
             }
         }
         
-        .fade-in {
-            animation: fadeIn 1s ease forwards;
-        }
-        
-        .fade-in-delay-1 {
-            opacity: 0;
-            animation: fadeIn 1s ease forwards 0.2s;
-        }
-        
-        .fade-in-delay-2 {
-            opacity: 0;
-            animation: fadeIn 1s ease forwards 0.4s;
-        }
-        
-        .fade-in-delay-3 {
-            opacity: 0;
-            animation: fadeIn 1s ease forwards 0.6s;
-        }
-        
-        /* Responsives Design */
-        @media (max-width: 1100px) {
-            .process-step {
-                width: 48%;
-                min-width: 200px;
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .nav-container {
+                padding: 0 1rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .hamburger {
+                display: flex;
+            }
+            
+            .hero-container {
+                padding: 0 1rem;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            /* Agent Sections */
+            .agent-section {
+                flex-direction: column;
+                text-align: center;
+                gap: 2rem;
+            }
+            
+            .agent-section .text-container {
+                max-width: 100%;
+            }
+            
+            img.agent-section {
+                max-width: 100%;
+                max-height: 280px;
+            }
+            
+            .agent-image-wrapper {
+                height: 320px;
+                padding: 1rem;
+            }
+            
+            /* Grid Layouts */
+            .grid {
+                grid-template-columns: 1fr !important;
+            }
+            
+            .order-1,
+            .order-2 {
+                order: initial !important;
             }
         }
         
         @media (max-width: 768px) {
-            .page-header h1 {
-                font-size: 2.5rem;
+            .hero-title {
+                font-size: 2rem;
             }
             
-            .partnership-section h2, .models-section h2, .case-studies h2, .cta-section h2, .faq-section h2 {
-                font-size: 2rem;
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            
+            /* Agent Sections */
+            .agent-section {
+                gap: 1.5rem;
+            }
+            
+            .agent-section h2 {
+                font-size: 1.5rem;
+            }
+            
+            img.agent-section {
+                max-width: 100%;
+                max-height: 240px;
+            }
+            
+            .agent-image-wrapper {
+                height: auto;
+                padding: 1rem;
+                min-height: 240px;
+            }
+            
+        }
+        
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 1.8rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            
+            
+            /* Agent Sections */
+            .agent-section {
+                gap: 1.25rem;
+            }
+            
+            .agent-section h2 {
+                font-size: 1.375rem;
+            }
+            
+            img.agent-section {
+                max-width: 100%;
+                max-height: 200px;
+            }
+            
+            .agent-image-wrapper {
+                height: auto;
+                padding: 0.75rem;
+                min-height: 200px;
+                border-radius: 12px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            }
+            
+            
+            .btn {
+                padding: 0.8rem 1.5rem;
+                font-size: 0.9rem;
+            }
+        }
+        
+        @media (max-width: 360px) {
+            .hero-title {
+                font-size: 1.6rem;
+            }
+            
+            
+            /* Agent Sections */
+            .agent-section h2 {
+                font-size: 1.25rem;
+            }
+            
+            .agent-image-wrapper {
+                padding: 0.5rem;
+                min-height: 180px;
+            }
+            
+        }
+        
+        /* ===== MOBILE OPTIMIZATION (≤ 768px) ===== */
+        @media (max-width: 768px) {
+            /* Container & Abstände */
+            .container, .mx-auto {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            
+            section {
+                padding: 2rem 0;
+            }
+            
+            /* Typografie */
+            h1 {
+                font-size: clamp(1.5rem, 5vw, 2.5rem);
+                line-height: 1.2;
+            }
+            
+            h2 {
+                font-size: clamp(1.25rem, 4vw, 2rem);
+                line-height: 1.3;
+            }
+            
+            h3 {
+                font-size: clamp(1.125rem, 3vw, 1.5rem);
+                line-height: 1.4;
+            }
+            
+            p, .text-lg {
+                font-size: clamp(1rem, 3vw, 1.125rem);
+                line-height: 1.6;
+            }
+            
+            /* Grids & Layout */
+            .grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .grid-cols-2 {
+                grid-template-columns: 1fr;
+            }
+            
+            .grid-cols-3 {
+                grid-template-columns: 1fr;
+            }
+            
+            /* Bilder */
+            img {
+                max-width: 100%;
+                height: auto;
+                aspect-ratio: 16/9;
+                object-fit: cover;
+            }
+            
+            /* Buttons & Tap-Targets */
+            .btn, .cta-button, button, a[role="button"] {
+                min-height: 44px;
+                min-width: 44px;
+                padding: 0.75rem 1.5rem;
+                font-size: 1rem;
+            }
+            
+            .cta-button {
+                width: 100%;
+                margin-top: 1rem;
+            }
+            
+            /* Navigation */
+            .nav-container {
+                padding: 0 1rem;
             }
             
             .nav-links {
@@ -570,391 +652,311 @@
                 top: 100%;
                 left: 0;
                 width: 100%;
-                background-color: white;
+                background: white;
                 flex-direction: column;
-                padding: 1rem 2rem;
-                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                padding: 1rem;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                z-index: 1000;
             }
             
             .nav-links.active {
                 display: flex;
             }
             
-            .mobile-menu {
-                display: block;
+            .nav-links a {
+                padding: 0.75rem 0;
+                border-bottom: 1px solid #e5e7eb;
             }
             
+            .hamburger {
+                display: flex;
+            }
+            
+            /* CTA Section */
             .cta-section {
-                padding: 2rem;
+                padding: 2rem 0;
             }
             
-            .models-grid {
-                flex-direction: column;
-                align-items: center;
+            .cta-title {
+                font-size: clamp(1.5rem, 4vw, 2rem);
             }
             
-            .model-card {
-                width: 100%;
+            .cta-subtitle {
+                font-size: clamp(1rem, 3vw, 1.125rem);
             }
             
-            .process-step {
-                width: 100%;
-            }
-        }
-        
-        /* Mobile Optimierung - Tablet (768px - 1024px) */
-        @media (max-width: 1024px) {
-            /* Typografie */
-            h1 {
-                font-size: 2.25rem;
-                line-height: 1.2;
-            }
-            
-            h2 {
-                font-size: 1.75rem;
-                line-height: 1.3;
-            }
-            
-            p {
-                font-size: 1rem;
-                line-height: 1.5;
-            }
-            
-            /* Sections */
-            section {
-                padding: 3rem 2rem;
-            }
-            
-            /* Grid Layouts */
-            .grid {
+            /* Footer */
+            .footer-content {
                 grid-template-columns: 1fr;
                 gap: 2rem;
+                text-align: left;
             }
             
-            /* CTAs */
-            .cta-btn, a[class*="bg-purple"] {
-                min-height: 44px;
-                padding: 0.75rem 1.5rem;
-                font-size: 1rem;
+            .footer-contact,
+            .footer-contact-section {
+                text-align: left;
+            }
+            
+            .footer-copyright {
+                margin-top: 2rem;
+                text-align: center;
             }
         }
         
-        /* Mobile Optimierung - Smartphone (480px - 768px) */
-        @media (max-width: 768px) {
-            /* Typografie */
-            h1 {
-                font-size: 2rem;
-                line-height: 1.2;
-            }
-            
-            h2 {
-                font-size: 1.5rem;
-                line-height: 1.3;
-            }
-            
-            p {
-                font-size: 1rem;
-                line-height: 1.5;
-            }
-            
-            /* Sections */
-            section {
-                padding: 2rem 1.5rem;
-            }
-            
-            /* CTAs */
-            .cta-btn, a[class*="bg-purple"] {
-                width: 100%;
-                min-height: 44px;
-                padding: 0.875rem 1.5rem;
-                font-size: 1rem;
-            }
-        }
-        
-        /* Mobile Optimierung - Small Mobile (≤ 480px) */
+        /* ===== SMALL MOBILE OPTIMIZATION (≤ 480px) ===== */
         @media (max-width: 480px) {
+            /* Container & Abstände */
+            .container, .mx-auto {
+                padding-left: 0.75rem;
+                padding-right: 0.75rem;
+            }
+            
+            section {
+                padding: 1.5rem 0;
+            }
+            
             /* Typografie */
             h1 {
-                font-size: 1.75rem;
-                line-height: 1.2;
+                font-size: clamp(1.25rem, 6vw, 2rem);
             }
             
             h2 {
-                font-size: 1.375rem;
-                line-height: 1.3;
+                font-size: clamp(1.125rem, 5vw, 1.75rem);
             }
             
-            p {
+            p, .text-lg {
+                font-size: clamp(0.875rem, 3vw, 1rem);
+            }
+            
+            /* Buttons */
+            .btn, .cta-button, button, a[role="button"] {
+                padding: 0.625rem 1.25rem;
                 font-size: 0.9375rem;
-                line-height: 1.5;
             }
             
-            /* Sections */
-            section {
-                padding: 1.5rem 1rem;
+            /* CTA Section */
+            .cta-section {
+                padding: 1.5rem 0;
             }
             
-            /* CTAs */
-            .cta-btn, a[class*="bg-purple"] {
-                width: 100%;
-                min-height: 44px;
+            .cta-button {
                 padding: 0.75rem 1rem;
-                font-size: 0.9375rem;
-            }
-            
-            /* Touch Targets */
-            a, button {
-                min-height: 44px;
-                min-width: 44px;
-            }
-            
-            /* Cards */
-            .model-card, .partnership-card {
-                border-radius: 12px;
-                box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            }
-        }
-        
-        /* Extra Small Mobile (≤ 375px) */
-        @media (max-width: 375px) {
-            /* Sections */
-            section {
-                padding: 1.25rem 0.875rem;
-            }
-            
-            /* Typografie */
-            h1 {
-                font-size: 1.625rem;
-                line-height: 1.2;
-            }
-            
-            h2 {
-                font-size: 1.25rem;
-                line-height: 1.3;
-            }
-            
-            p {
-                font-size: 0.875rem;
-                line-height: 1.5;
-            }
-            
-            /* CTAs */
-            .cta-btn, a[class*="bg-purple"] {
-                padding: 0.75rem 0.875rem;
-                font-size: 0.875rem;
+                font-size: 0.9rem;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Navigation -->
     <nav>
         <div class="nav-container">
             <div class="logo">
                 <a href="/" class="logo-link">
-                    <img src="Image/logo2.png" alt="Brand Agent Logo">
+                <img src="Image/logo2.png" alt="Brand Agent Logo">
                 </a>
             </div>
-            <div class="nav-links">
-                <a href="/">Home</a>
-                <a href="/brands" class="active">Brands</a>
-                <a href="/agents">Agents</a>
-                <a href="/partnerprogramm">Partnerprogramm</a>
-                <a href="/kontakt">Kontakt</a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/brands" class="active">Brands</a></li>
+                <li><a href="/agents">Agents</a></li>
+                <li><a href="/partnerprogramm">Partnerprogramm</a></li>
+                <li><a href="/kontakt">Kontakt</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
-            <div class="mobile-menu">☰</div>
         </div>
     </nav>
     
-    <header class="page-header">
-        <h1 class="fade-in">Brand Shops</h1>
-        <p class="fade-in-delay-1">Wir bieten Ihnen die Möglichkeit, Ihr eigenes E-Commerce-Geschäft aufzubauen und Ihre einzigartige Eigenmarke zu entwickeln.</p>
-    </header>
-    
-    <main>
-        <section class="container partnership-section fade-in-delay-2">
-            <h2>So funktioniert unsere Zusammenarbeit</h2>
-            <p>Wir bieten ein einzigartiges Geschäftsmodell, bei dem wir gemeinsam mit Ihnen einen erfolgreichen Onlineshop aufbauen und Ihre eigene Marke entwickeln. Sie profitieren von unserer Expertise und erhalten attraktive Konditionen.</p>
-            
-            <div class="process-steps">
-                <div class="process-step">
-                    <div class="step-number">1</div>
-                    <h3>Bedarfsanalyse</h3>
-                    <p>Wir analysieren Ihren Markt, Ihre Zielgruppe und Ihre Geschäftsziele, um eine massgeschneiderte Strategie zu entwickeln.</p>
-                </div>
-                
-                <div class="process-step">
-                    <div class="step-number">2</div>
-                    <h3>Konzept & Strategie</h3>
-                    <p>Gemeinsam erarbeiten wir ein Konzept für Ihren Onlineshop und entwickeln eine Strategie für Ihre Eigenmarke.</p>
-                </div>
-                
-                <div class="process-step">
-                    <div class="step-number">3</div>
-                    <h3>Entwicklung & Umsetzung</h3>
-                    <p>Wir übernehmen die technische Umsetzung des Shops, das Design, die Produktentwicklung und die Eigenmarken-Kreation.</p>
-                </div>
-                
-                <div class="process-step">
-                    <div class="step-number">4</div>
-                    <h3>Marketing & Vertrieb</h3>
-                    <p>Wir implementieren effektive Marketing-Strategien, um Ihren Shop zu bewerben und den Verkauf Ihrer Eigenmarkenprodukte zu fördern.</p>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">Brand Shops</h1>
+                <p class="hero-subtitle">Wir bieten Ihnen die Möglichkeit, Ihr eigenes E-Commerce-Geschäft aufzubauen und Ihre einzigartige Eigenmarke zu entwickeln.</p>
                 </div>
             </div>
         </section>
         
-        <section class="container models-section fade-in-delay-3">
-            <h2>Unsere Partnerschaftsmodelle</h2>
-            <p>Wir bieten verschiedene Modelle der Zusammenarbeit an, die auf Ihre individuellen Bedürfnisse und Ziele zugeschnitten sind.</p>
-            
-            <div class="models-grid">
-                <div class="model-card">
-                    <div class="model-content">
-                        <h3 class="model-title">Onlineshop mit Lizenzvereinbarung</h3>
-                        <p class="model-description">Wir übernehmen die Entwicklung, den Betrieb und das Marketing Ihres Onlineshops, während Sie von einer attraktiven Lizenzvereinbarung profitieren.</p>
-                        
-                        <div class="model-benefits">
-                            <h4>Ihre Vorteile:</h4>
-                            <div class="benefit-item">
-                                <span class="benefit-icon">✓</span>
-                                <span class="benefit-text">Minimale Anfangsinvestition</span>
+    <!-- E-Commerce Strategien Section -->
+    <section class="py-10 md:py-14 lg:py-20 bg-white">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-8 items-center">
+                <div class="order-2 lg:order-1">
+                    <div class="agent-image-wrapper">
+                        <img src="Image/shop Bild.png" alt="E-Commerce Strategien Illustration" class="agent-section">
                             </div>
-                            <div class="benefit-item">
-                                <span class="benefit-icon">✓</span>
-                                <span class="benefit-text">Professioneller Onlineshop ohne eigene Ressourcen</span>
                             </div>
-                            <div class="benefit-item">
-                                <span class="benefit-icon">✓</span>
-                                <span class="benefit-text">Attraktive Lizenzvereinbarung</span>
+                <div class="order-1 lg:order-2 text-container">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-gray-900">E-Commerce Strategien</h2>
+                    <p class="mt-6 text-base sm:text-lg text-gray-700 leading-relaxed">Wir bieten ein einzigartiges Geschäftsmodell, bei dem wir gemeinsam mit Ihnen einen erfolgreichen Onlineshop aufbauen und Ihre eigene Marke entwickeln. Sie profitieren von unserer Expertise und erhalten attraktive Konditionen.</p>
+                    <div class="mt-8">
+                        <a href="/kontakt" class="w-full sm:w-auto inline-flex items-center justify-center rounded-xl px-6 py-3 text-base font-semibold text-white bg-purple-700 hover:bg-purple-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-700">Mehr erfahren</a>
                             </div>
-                            <div class="benefit-item">
-                                <span class="benefit-icon">✓</span>
-                                <span class="benefit-text">Komplettes Fulfillment durch uns</span>
                             </div>
                         </div>
                     </div>
-                </div>
-                
-                <div class="model-card">
-                    <div class="model-content">
-                        <h3 class="model-title">Eigenmarken-Entwicklung</h3>
-                        <p class="model-description">Wir konzipieren und entwickeln Ihre exklusive Eigenmarke von der Idee bis zum fertigen Produkt. Sie erhalten eine Marke, die perfekt zu Ihrem Unternehmen passt.</p>
-                        
-                        <div class="model-benefits">
-                            <h4>Ihre Vorteile:</h4>
-                            <div class="benefit-item">
-                                <span class="benefit-icon">✓</span>
-                                <span class="benefit-text">Einzigartige Markenidentität</span>
+    </section>
+
+    <!-- Ursprünglicher Brands-Content -->
+    
+    <!-- Onlineshop mit Lizenzvereinbarung Section -->
+    <section class="py-10 md:py-14 lg:py-20 bg-gray-50">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Onlineshop mit Lizenzvereinbarung</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Wir übernehmen die Entwicklung, den Betrieb und das Marketing Ihres Onlineshops, während Sie von einer attraktiven Lizenzvereinbarung profitieren.</p>
                             </div>
-                            <div class="benefit-item">
-                                <span class="benefit-icon">✓</span>
-                                <span class="benefit-text">Höhere Margen durch Eigenmarkenprodukte</span>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-white rounded-2xl shadow-lg p-8">
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-6">Ihre Vorteile:</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 w-6 h-6 bg-purple-100 rounded-full flex items-center justify-center mr-3 mt-0.5">
+                                <svg class="w-4 h-4 text-purple-600" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                </svg>
                             </div>
-                            <div class="benefit-item">
-                                <span class="benefit-icon">✓</span>
-                                <span class="benefit-text">Produktentwicklung und Beschaffung</span>
+                            <span class="text-gray-700">Minimale Anfangsinvestition</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 w-6 h-6 bg-purple-100 rounded-full flex items-center justify-center mr-3 mt-0.5">
+                                <svg class="w-4 h-4 text-purple-600" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                </svg>
                             </div>
-                            <div class="benefit-item">
-                                <span class="benefit-icon">✓</span>
-                                <span class="benefit-text">Stärkere Kundenbindung</span>
+                            <span class="text-gray-700">Professioneller Onlineshop ohne eigene Ressourcen</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 w-6 h-6 bg-purple-100 rounded-full flex items-center justify-center mr-3 mt-0.5">
+                                <svg class="w-4 h-4 text-purple-600" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                </svg>
                             </div>
+                            <span class="text-gray-700">Attraktive Lizenzvereinbarung</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 w-6 h-6 bg-purple-100 rounded-full flex items-center justify-center mr-3 mt-0.5">
+                                <svg class="w-4 h-4 text-purple-600" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                </svg>
                         </div>
+                            <span class="text-gray-700">Komplettes Fulfillment durch uns</span>
+                        </li>
+                    </ul>
                     </div>
                 </div>
             </div>
         </section>
         
-        <section class="container cta-section">
-            <h2 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 1.5rem; color: #1d1d1f;">Bereit für den nächsten Schritt?</h2>
-            <p style="font-size: 1.2rem; color: #6b7280; margin-bottom: 2rem; line-height: 1.6;">Kontaktieren Sie uns noch heute für ein unverbindliches Beratungsgespräch und erfahren Sie, wie wir gemeinsam Ihre Geschäftsidee in die Realität umsetzen können.</p>
-            <a href="/kontakt" class="cta-btn">Jetzt Termin vereinbaren</a>
+    <!-- FAQ Section -->
+    <section class="py-16 lg:py-24 bg-white">
+        <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-gray-900 text-center mb-16">Häufig gestellte Fragen</h2>
+            
+            <div class="space-y-6">
+                <div class="bg-white border border-gray-200 rounded-2xl p-6">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-3">Wie hoch ist die Anfangsinvestition für einen Onlineshop mit Lizenzvereinbarung?</h3>
+                    <p class="text-gray-600">Die Höhe der Anfangsinvestition variiert je nach Umfang und Komplexität des Projekts. Wir bieten flexible Modelle an, die auch mit minimaler Anfangsinvestition starten können. In einem persönlichen Gespräch analysieren wir Ihre Bedürfnisse und erstellen ein massgeschneidertes Angebot, das Ihren finanziellen Möglichkeiten entspricht.</p>
+                </div>
+                
+                <div class="bg-white border border-gray-200 rounded-2xl p-6">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-3">Wie lange dauert es, bis mein Onlineshop live geht?</h3>
+                    <p class="text-gray-600">Die Entwicklungszeit für einen Onlineshop beträgt in der Regel 2-3 Monate. Dies umfasst die Konzeption, das Design, die technische Umsetzung und das Onboarding der ersten Produkte. Bei der Eigenmarkenentwicklung kommen je nach Produktkategorie weitere 2-4 Monate für die Produktentwicklung und Produktion hinzu.</p>
+                </div>
+                
+                <div class="bg-white border border-gray-200 rounded-2xl p-6">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-3">Wer kümmert sich um Logistik und Kundenservice?</h3>
+                    <p class="text-gray-600">Wir bieten ein Full-Service-Modell an, bei dem wir die gesamte Logistik, das Fulfillment und den Kundenservice übernehmen. Das umfasst die Lagerhaltung, den Versand, die Retouren-Abwicklung und den Kundensupport. Sie können sich auf die strategischen Aspekte Ihres Geschäfts konzentrieren, während wir uns um das operative Tagesgeschäft kümmern.</p>
+                    </div>
+                </div>
+            </div>
         </section>
         
-        <section class="container faq-section">
-            <h2>Häufig gestellte Fragen</h2>
-            
-            <div class="faq-item">
-                <div class="faq-question">Wie hoch ist die Anfangsinvestition für einen Onlineshop mit Lizenzvereinbarung?</div>
-                <div class="faq-answer">
-                    <p>Die Höhe der Anfangsinvestition variiert je nach Umfang und Komplexität des Projekts. Wir bieten flexible Modelle an, die auch mit minimaler Anfangsinvestition starten können. In einem persönlichen Gespräch analysieren wir Ihre Bedürfnisse und erstellen ein massgeschneidertes Angebot, das Ihren finanziellen Möglichkeiten entspricht.</p>
+    <!-- Erfolgsgeschichten Section (auskommentiert) -->
+    <!--
+    <section class="py-16 lg:py-24 bg-gray-50">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-gray-900 text-center mb-16">Erfolgsgeschichten unserer Partner</h2>
+            <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                <div class="bg-white rounded-2xl p-6 shadow-lg">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">TechStart AG</h3>
+                    <p class="text-gray-600 mb-4">"Durch die Zusammenarbeit mit Brand Agent konnten wir unseren Onlineshop innerhalb von 3 Monaten erfolgreich launchen."</p>
+                    <div class="text-sm text-gray-500">+150% Umsatzsteigerung</div>
+                </div>
+                <div class="bg-white rounded-2xl p-6 shadow-lg">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Innovate GmbH</h3>
+                    <p class="text-gray-600 mb-4">"Die Automatisierung unserer Prozesse hat uns enorm viel Zeit gespart."</p>
+                    <div class="text-sm text-gray-500">80% weniger manuelle Arbeit</div>
+            </div>
+                <div class="bg-white rounded-2xl p-6 shadow-lg">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">FutureCorp</h3>
+                    <p class="text-gray-600 mb-4">"Die Lizenzvereinbarung war für uns der perfekte Einstieg in den E-Commerce."</p>
+                    <div class="text-sm text-gray-500">+200% Kundenzuwachs</div>
                 </div>
             </div>
-            
-            <div class="faq-item">
-                <div class="faq-question">Wie lange dauert es, bis mein Onlineshop live geht?</div>
-                <div class="faq-answer">
-                    <p>Die Entwicklungszeit für einen Onlineshop beträgt in der Regel 2-3 Monate. Dies umfasst die Konzeption, das Design, die technische Umsetzung und das Onboarding der ersten Produkte. Bei der Eigenmarkenentwicklung kommen je nach Produktkategorie weitere 2-4 Monate für die Produktentwicklung und Produktion hinzu.</p>
                 </div>
-            </div>
-            
-            <div class="faq-item">
-                <div class="faq-question">Welche Kontrolle habe ich über meine Eigenmarke?</div>
-                <div class="faq-answer">
-                    <p>Sie behalten die volle kreative Kontrolle über Ihre Eigenmarke. Wir arbeiten eng mit Ihnen zusammen, um sicherzustellen, dass die Marke Ihre Vision und Werte widerspiegelt. Von der Namensgebung über das Logo-Design bis hin zur Produktauswahl – Sie haben das letzte Wort. Gleichzeitig profitieren Sie von unserer Expertise in Markenentwicklung und Produktionsmanagement.</p>
-                </div>
-            </div>
-            
-            <div class="faq-item">
-                <div class="faq-question">Wer kümmert sich um Logistik und Kundenservice?</div>
-                <div class="faq-answer">
-                    <p>Wir bieten ein Full-Service-Modell an, bei dem wir die gesamte Logistik, das Fulfillment und den Kundenservice übernehmen. Das umfasst die Lagerhaltung, den Versand, die Retouren-Abwicklung und den Kundensupport. Sie können sich auf die strategischen Aspekte Ihres Geschäfts konzentrieren, während wir uns um das operative Tagesgeschäft kümmern.</p>
-                </div>
+    </section>
+    -->
+
+
+    <!-- Unified CTA Section -->
+    <section class="cta-section agents-variant">
+        <div class="cta-container">
+            <h2 class="cta-title">Bereit für den nächsten Schritt?</h2>
+            <p class="cta-subtitle">Kontaktieren Sie uns noch heute für ein unverbindliches Beratungsgespräch und erfahren Sie, wie wir gemeinsam Ihre Geschäftsidee in die Realität umsetzen können.</p>
+            <a href="/kontakt" class="cta-button">Jetzt Termin vereinbaren</a>
             </div>
         </section>
-    </main>
     
+    <!-- Footer -->
     <footer>
         <div class="footer-content">
-            <div>
-                <div class="footer-logo">Digitale Prozessautomatisierungen</div>
-                <p class="footer-description">Ihr Partner für erfolgreiche E-Commerce-Strategien, Onlineshop-Entwicklung und individuelle Automatisierungslösungen. Wir verbinden Beratung, Design und Technologie, damit Ihre digitalen Prozesse effizienter laufen und Ihre Marke nachhaltig wächst.</p>
-                <div class="footer-social">
-                    <a href="https://www.linkedin.com/company/brandagentgmbh/" target="_blank" aria-label="LinkedIn">in</a>
-                </div>
-            </div>
-            <div>
-                <h3 class="footer-title">Links</h3>
+            <div class="footer-section">
+                <h3>Links</h3>
                 <div class="footer-links">
                     <a href="/">Home</a>
                     <a href="/brands">Brands</a>
                     <a href="/agents">Agents</a>
+                    <a href="/partnerprogramm">Partnerprogramm</a>
                     <a href="/kontakt">Kontakt</a>
                 </div>
             </div>
-            <div>
-                <h3 class="footer-title">Kontakt</h3>
-                <div class="footer-links">
-                    <a>Brand Agent GmbH</a>
-                    <a>Waldetenstrasse 23, 6343 Rotkreuz</a>
-                    <a>UID: CHE-204.407.181</a>
-                    <a href="mailto:info@brandagent.ch">info@brandagent.ch</a>
+            <div class="footer-section footer-contact-section">
+                <h3>Kontakt</h3>
+                <div class="footer-contact">Brand Agent GmbH</div>
+                <div class="footer-contact">Waldetenstrasse 23, 6343 Rotkreuz</div>
+                <div class="footer-contact">UID: CHE-204.407.181</div>
+                <div class="footer-contact">
+                    <a href="mailto:info@brandagent.ch" style="color: #7c3aed; text-decoration: none;">info@brandagent.ch</a>
                 </div>
             </div>
         </div>
-        <div class="footer-bottom">
-            <div class="footer-copyright">&copy; 2025 Brand Agent GmbH. Alle Rechte vorbehalten.</div>
-        </div>
+        <div class="footer-copyright">© 2025 Brand Agent GmbH. Alle Rechte vorbehalten.</div>
     </footer>
     
     <script>
         // Mobile Menu Toggle
-        document.addEventListener('DOMContentLoaded', function() {
-            const mobileMenuButton = document.querySelector('.mobile-menu');
+        const hamburger = document.querySelector('.hamburger');
             const navLinks = document.querySelector('.nav-links');
             
-            mobileMenuButton.addEventListener('click', function() {
+        hamburger.addEventListener('click', () => {
                 navLinks.classList.toggle('active');
             });
             
-            // FAQ Toggle
-            const faqQuestions = document.querySelectorAll('.faq-question');
-            
-            faqQuestions.forEach(question => {
-                question.addEventListener('click', () => {
-                    const faqItem = question.parentElement;
-                    faqItem.classList.toggle('active');
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
                 });
             });
         });
     </script>
 </body>
+</html>
 </html>

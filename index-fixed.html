@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brand Agent GmbH - Automatisierung & E-Commerce</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="Image/BA Icon Schwarz auf Weiss.png">
+    <link rel="shortcut icon" type="image/png" href="Image/BA Icon Schwarz auf Weiss.png">
+    <link rel="apple-touch-icon" href="Image/BA Icon Schwarz auf Weiss.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Reset und Basis-Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #0f172a;
+            background-color: #ffffff;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        /* Typografie */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            line-height: 1.2;
+            color: #0f172a;
+            margin-bottom: 1.5rem;
+        }
+        
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            letter-spacing: -0.025em;
+        }
+        
+        h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            letter-spacing: -0.025em;
+        }
+        
+        h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+            color: #475569;
+            line-height: 1.7;
+        }
+        
+        a {
+            color: #6366f1;
+            text-decoration: none;
+            transition: color 150ms ease-in-out;
+        }
+        
+        a:hover {
+            color: #4f46e5;
+        }
+        
+        /* Container */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        @media (min-width: 640px) {
+            .container {
+                padding: 0 1.5rem;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .container {
+                padding: 0 2rem;
+            }
+        }
+        
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid #f1f5f9;
+            transition: all 300ms ease-in-out;
+        }
+        
+        .navbar-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #0f172a;
+        }
+        
+        .logo img {
+            height: 40px;
+            width: auto;
+        }
+        
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            font-weight: 500;
+            color: #475569;
+            transition: color 150ms ease-in-out;
+            position: relative;
+        }
+        
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #6366f1;
+        }
+        
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: #6366f1;
+            border-radius: 1px;
+        }
+        
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            padding-top: 120px;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+        
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #0f172a, #6366f1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: #475569;
+            margin-bottom: 3rem;
+            line-height: 1.6;
+        }
+        
+        .hero-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 1rem;
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+            margin: 3rem auto;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border: none;
+            border-radius: 0.75rem;
+            cursor: pointer;
+            transition: all 300ms ease-in-out;
+            white-space: nowrap;
+        }
+        
+        .btn-primary {
+            background-color: #6366f1;
+            color: white;
+            box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+        }
+        
+        .btn-primary:hover {
+            background-color: #4f46e5;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            transform: translateY(-1px);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: #6366f1;
+            border: 2px solid #6366f1;
+        }
+        
+        .btn-secondary:hover {
+            background-color: #6366f1;
+            color: white;
+        }
+        
+        .btn-lg {
+            padding: 1.5rem 3rem;
+            font-size: 1.125rem;
+        }
+        
+        /* Features Section */
+        .features-section {
+            padding: 6rem 0;
+            background-color: #f8fafc;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .feature-card {
+            background: #ffffff;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            border: 1px solid #f1f5f9;
+            transition: all 300ms ease-in-out;
+            text-align: center;
+        }
+        
+        .feature-card:hover {
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            transform: translateY(-4px);
+        }
+        
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #6366f1, #4f46e5);
+            border-radius: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: white;
+            font-size: 1.25rem;
+        }
+        
+        /* About Section */
+        .about-section {
+            padding: 6rem 0;
+        }
+        
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .about-image {
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .list-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .list-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .list-bullet {
+            width: 8px;
+            height: 8px;
+            background-color: #6366f1;
+            border-radius: 50%;
+            margin-top: 8px;
+            flex-shrink: 0;
+        }
+        
+        .list-text {
+            color: #475569;
+            line-height: 1.5;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #6366f1, #4f46e5);
+            color: white;
+            text-align: center;
+            padding: 6rem 0;
+        }
+        
+        .cta-title {
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+        
+        .cta-text {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.125rem;
+            margin-bottom: 3rem;
+        }
+        
+        .cta-button {
+            background: white;
+            color: #6366f1;
+            padding: 1.5rem 3rem;
+            border-radius: 0.75rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 300ms ease-in-out;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: #1f2937;
+            color: white;
+            padding: 3rem 0;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer h3,
+        .footer h4 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+        
+        .footer p {
+            color: #d1d5db;
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-border {
+            border-top: 1px solid #374151;
+            padding-top: 2rem;
+            text-align: center;
+        }
+        
+        .footer-border p {
+            color: #9ca3af;
+            font-size: 0.875rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: #ffffff;
+                flex-direction: column;
+                padding: 1.5rem;
+                box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+                border-top: 1px solid #f1f5f9;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem;
+            }
+            
+            .features-section,
+            .about-section {
+                padding: 4rem 0;
+            }
+            
+            .cta-section {
+                padding: 4rem 0;
+            }
+            
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .features-section,
+            .about-section {
+                padding: 3rem 0;
+            }
+            
+            .cta-section {
+                padding: 3rem 0;
+            }
+        }
+        
+        /* Animationen */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-fade-in {
+            animation: fadeIn 0.6s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-content">
+                <div class="logo">
+                    <a href="/">
+                        <img src="Image/logo2.png" alt="Brand Agent Logo">
+                        <span>Brand Agent</span>
+                    </a>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="/" class="active">Home</a></li>
+                    <li><a href="/brands">Brands</a></li>
+                    <li><a href="/agents">Agents</a></li>
+                    <li><a href="/partnerprogramm">Partnerprogramm</a></li>
+                    <li><a href="/kontakt">Kontakt</a></li>
+                </ul>
+                <button class="mobile-menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content animate-fade-in">
+                <h1 class="hero-title">Automatisierung & E-Commerce</h1>
+                <p class="hero-subtitle">Wir entwickeln massgeschneiderte Lösungen für Ihr Unternehmen – von Automatisierungs-Agents bis hin zu erfolgreichen Onlineshops mit Lizenzvereinbarung.</p>
+                
+                <div class="hero-image">
+                    <img src="Image/Network-Automation.png" alt="Automatisierung & E-Commerce">
+                </div>
+                
+                <div class="hero-buttons">
+                    <a href="/agents" class="btn btn-primary btn-lg">Automatisierung entdecken</a>
+                    <a href="/brands" class="btn btn-secondary btn-lg">E-Commerce erkunden</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Unsere Lösungen für Sie</h2>
+                <p>Von der Prozessautomatisierung bis zum erfolgreichen E-Commerce – wir bieten umfassende Lösungen für Ihr Unternehmen.</p>
+            </div>
+            
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🤖</div>
+                    <h3>Prozessautomatisierung</h3>
+                    <p>Digitale Workflows statt Papierkram – wir gestalten Ihre Abläufe effizienter und automatisieren repetitive Aufgaben.</p>
+                    <a href="/agents" class="btn btn-primary">Mehr erfahren</a>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🛒</div>
+                    <h3>E-Commerce & Markenportale</h3>
+                    <p>Onlineshops, die funktionieren: von der technischen Basis bis zum individuellen Branding mit attraktiver Lizenzvereinbarung.</p>
+                    <a href="/brands" class="btn btn-primary">Mehr erfahren</a>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🎨</div>
+                    <h3>Branding & Design</h3>
+                    <p>Starke Marken brauchen eine klare Identität – wir entwickeln Design & Markenstrategie für Ihren Erfolg.</p>
+                    <a href="/kontakt" class="btn btn-primary">Mehr erfahren</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="container">
+            <div class="about-grid">
+                <div>
+                    <h2>Über Brand Agent</h2>
+                    <p style="margin-bottom: 1.5rem;">Wir sind Ihr Partner für digitale Transformation und E-Commerce-Erfolg. Mit massgeschneiderten Automatisierungslösungen und innovativen E-Commerce-Strategien helfen wir Unternehmen dabei, ihre Prozesse zu optimieren und neue Geschäftsmodelle zu entwickeln.</p>
+                    
+                    <ul class="list">
+                        <li class="list-item">
+                            <div class="list-bullet"></div>
+                            <span class="list-text">Bis zu 80% weniger manuelle Arbeit durch Automatisierung</span>
+                        </li>
+                        <li class="list-item">
+                            <div class="list-bullet"></div>
+                            <span class="list-text">Nahtlose Integration mit Ihren bestehenden Tools</span>
+                        </li>
+                        <li class="list-item">
+                            <div class="list-bullet"></div>
+                            <span class="list-text">Persönlicher Support durch Experten</span>
+                        </li>
+                        <li class="list-item">
+                            <div class="list-bullet"></div>
+                            <span class="list-text">Attraktive Lizenzvereinbarungen für E-Commerce</span>
+                        </li>
+                    </ul>
+                    
+                    <a href="/kontakt" class="btn btn-primary btn-lg" style="margin-top: 2rem;">Kostenloses Beratungsgespräch</a>
+                </div>
+                
+                <div class="about-image">
+                    <img src="Image/Digital.png" alt="Brand Agent Team">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="cta-title">Bereit für den nächsten Schritt?</h2>
+            <p class="cta-text">Kontaktieren Sie uns noch heute für ein unverbindliches Beratungsgespräch und erfahren Sie, wie wir gemeinsam Ihre Geschäftsidee in die Realität umsetzen können.</p>
+            <a href="/kontakt" class="cta-button">Jetzt Termin vereinbaren</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h3>Brand Agent GmbH</h3>
+                    <p>Wir automatisieren Ihre Geschäftsprozesse und entwickeln massgeschneiderte Lösungen für Ihr Unternehmen.</p>
+                </div>
+                <div>
+                    <h4>Kontakt</h4>
+                    <p>Brand Agent GmbH</p>
+                    <p>Musterstraße 123</p>
+                    <p>8001 Zürich</p>
+                    <p>UID: CHE-123.456.789</p>
+                    <p>info@brandagent.ch</p>
+                </div>
+            </div>
+            <div class="footer-border">
+                <p>© 2024 Brand Agent GmbH. Alle Rechte vorbehalten.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

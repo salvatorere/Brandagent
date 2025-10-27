@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brand Shops - Brand Agent GmbH</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="Image/BA Icon Schwarz auf Weiss.png">
+    <link rel="shortcut icon" type="image/png" href="Image/BA Icon Schwarz auf Weiss.png">
+    <link rel="apple-touch-icon" href="Image/BA Icon Schwarz auf Weiss.png">
+    <link rel="stylesheet" href="modern-design-system.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Brands-spezifische Styles */
+        .hero-section {
+            padding-top: 120px;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: var(--spacing-lg);
+            background: linear-gradient(135deg, var(--text-primary), var(--primary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-subtitle {
+            font-size: var(--font-size-xl);
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-2xl);
+            line-height: 1.6;
+        }
+        
+        .process-section {
+            padding: var(--spacing-4xl) 0;
+        }
+        
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-xl);
+            margin: var(--spacing-3xl) 0;
+        }
+        
+        .process-card {
+            background: var(--background-color);
+            padding: var(--spacing-xl);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-light);
+            text-align: center;
+            transition: all var(--transition-normal);
+        }
+        
+        .process-card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-4px);
+        }
+        
+        .process-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--spacing-lg);
+            color: white;
+            font-size: var(--font-size-xl);
+            font-weight: 700;
+        }
+        
+        .models-section {
+            padding: var(--spacing-4xl) 0;
+            background-color: var(--background-secondary);
+        }
+        
+        .model-card {
+            background: var(--background-color);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-light);
+            overflow: hidden;
+            transition: all var(--transition-normal);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .model-card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-4px);
+        }
+        
+        .model-content {
+            padding: var(--spacing-2xl);
+        }
+        
+        .model-title {
+            font-size: var(--font-size-2xl);
+            font-weight: 600;
+            margin-bottom: var(--spacing-md);
+            color: var(--text-primary);
+        }
+        
+        .model-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .benefits-list {
+            margin-top: var(--spacing-lg);
+        }
+        
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .benefit-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .benefit-icon {
+            color: var(--primary-color);
+            font-weight: bold;
+            margin-top: 2px;
+        }
+        
+        .benefit-text {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
+            color: white;
+            text-align: center;
+            padding: var(--spacing-4xl) 0;
+        }
+        
+        .cta-title {
+            color: white;
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .cta-text {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: var(--font-size-lg);
+            margin-bottom: var(--spacing-2xl);
+        }
+        
+        .cta-button {
+            background: white;
+            color: var(--primary-color);
+            padding: var(--spacing-lg) var(--spacing-2xl);
+            border-radius: var(--radius-lg);
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all var(--transition-normal);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .faq-section {
+            padding: var(--spacing-4xl) 0;
+        }
+        
+        .faq-item {
+            background: var(--background-color);
+            border-radius: var(--radius-lg);
+            margin-bottom: var(--spacing-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-light);
+        }
+        
+        .faq-question {
+            padding: var(--spacing-lg);
+            font-weight: 600;
+            color: var(--text-primary);
+            cursor: pointer;
+            transition: background-color var(--transition-fast);
+            border-bottom: 1px solid var(--border-light);
+        }
+        
+        .faq-question:hover {
+            background-color: var(--background-secondary);
+        }
+        
+        .faq-answer {
+            padding: 0 var(--spacing-lg) var(--spacing-lg);
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        
+        .faq-answer p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-content">
+                <div class="logo">
+                    <a href="/" class="logo-link">
+                        <img src="Image/logo2.png" alt="Brand Agent Logo">
+                        <span>Brand Agent</span>
+                    </a>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/brands" class="active">Brands</a></li>
+                    <li><a href="/agents">Agents</a></li>
+                    <li><a href="/partnerprogramm">Partnerprogramm</a></li>
+                    <li><a href="/kontakt">Kontakt</a></li>
+                </ul>
+                <button class="mobile-menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content animate-fade-in">
+                <h1 class="hero-title">Brand Shops</h1>
+                <p class="hero-subtitle">Wir bieten Ihnen die Möglichkeit, Ihr eigenes E-Commerce-Geschäft aufzubauen und Ihre einzigartige Eigenmarke zu entwickeln.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process-section">
+        <div class="container">
+            <div class="text-center mb-2xl">
+                <h2>So funktioniert unsere Zusammenarbeit</h2>
+                <p class="text-secondary">Wir bieten ein einzigartiges Geschäftsmodell, bei dem wir gemeinsam mit Ihnen einen erfolgreichen Onlineshop aufbauen und Ihre eigene Marke entwickeln. Sie profitieren von unserer Expertise und erhalten attraktive Konditionen.</p>
+            </div>
+            
+            <div class="process-grid">
+                <div class="process-card animate-slide-in-left">
+                    <div class="process-number">1</div>
+                    <h3>Bedarfsanalyse</h3>
+                    <p>Wir analysieren Ihren Markt, Ihre Zielgruppe und Ihre Geschäftsziele, um eine massgeschneiderte Strategie zu entwickeln.</p>
+                </div>
+                
+                <div class="process-card animate-fade-in">
+                    <div class="process-number">2</div>
+                    <h3>Konzept & Strategie</h3>
+                    <p>Gemeinsam erarbeiten wir ein Konzept für Ihren Onlineshop und entwickeln eine Strategie für Ihre Eigenmarke.</p>
+                </div>
+                
+                <div class="process-card animate-fade-in">
+                    <div class="process-number">3</div>
+                    <h3>Entwicklung & Umsetzung</h3>
+                    <p>Wir übernehmen die technische Umsetzung des Shops, das Design, die Produktentwicklung und die Eigenmarken-Kreation.</p>
+                </div>
+                
+                <div class="process-card animate-slide-in-right">
+                    <div class="process-number">4</div>
+                    <h3>Marketing & Vertrieb</h3>
+                    <p>Wir implementieren effektive Marketing-Strategien, um Ihren Shop zu bewerben und den Verkauf Ihrer Eigenmarkenprodukte zu fördern.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Models Section -->
+    <section class="models-section">
+        <div class="container">
+            <div class="text-center mb-2xl">
+                <h2>Unsere Partnerschaftsmodelle</h2>
+                <p class="text-secondary">Wir bieten verschiedene Modelle der Zusammenarbeit an, die auf Ihre individuellen Bedürfnisse und Ziele zugeschnitten sind.</p>
+            </div>
+            
+            <div class="model-card animate-fade-in">
+                <div class="model-content">
+                    <h3 class="model-title">Onlineshop mit Lizenzvereinbarung</h3>
+                    <p class="model-description">Wir übernehmen die Entwicklung, den Betrieb und das Marketing Ihres Onlineshops, während Sie von einer attraktiven Lizenzvereinbarung profitieren.</p>
+                    
+                    <div class="benefits-list">
+                        <h4 class="mb-lg">Ihre Vorteile:</h4>
+                        <div class="benefit-item">
+                            <span class="benefit-icon">✓</span>
+                            <span class="benefit-text">Minimale Anfangsinvestition</span>
+                        </div>
+                        <div class="benefit-item">
+                            <span class="benefit-icon">✓</span>
+                            <span class="benefit-text">Professioneller Onlineshop ohne eigene Ressourcen</span>
+                        </div>
+                        <div class="benefit-item">
+                            <span class="benefit-icon">✓</span>
+                            <span class="benefit-text">Attraktive Lizenzvereinbarung</span>
+                        </div>
+                        <div class="benefit-item">
+                            <span class="benefit-icon">✓</span>
+                            <span class="benefit-text">Komplettes Fulfillment durch uns</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="cta-title">Bereit für den nächsten Schritt?</h2>
+            <p class="cta-text">Kontaktieren Sie uns noch heute für ein unverbindliches Beratungsgespräch und erfahren Sie, wie wir gemeinsam Ihre Geschäftsidee in die Realität umsetzen können.</p>
+            <a href="/kontakt" class="cta-button">Jetzt Termin vereinbaren</a>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="text-center mb-2xl">
+                <h2>Häufig gestellte Fragen</h2>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="faq-item animate-fade-in">
+                    <div class="faq-question">Wie hoch ist die Anfangsinvestition für einen Onlineshop mit Lizenzvereinbarung?</div>
+                    <div class="faq-answer">
+                        <p>Die Höhe der Anfangsinvestition variiert je nach Umfang und Komplexität des Projekts. Wir bieten flexible Modelle an, die auch mit minimaler Anfangsinvestition starten können. In einem persönlichen Gespräch analysieren wir Ihre Bedürfnisse und erstellen ein massgeschneidertes Angebot, das Ihren finanziellen Möglichkeiten entspricht.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item animate-fade-in">
+                    <div class="faq-question">Wie lange dauert es, bis mein Onlineshop live geht?</div>
+                    <div class="faq-answer">
+                        <p>Die Entwicklungszeit für einen Onlineshop beträgt in der Regel 2-3 Monate. Dies umfasst die Konzeption, das Design, die technische Umsetzung und das Onboarding der ersten Produkte. Bei der Eigenmarkenentwicklung kommen je nach Produktkategorie weitere 2-4 Monate für die Produktentwicklung und Produktion hinzu.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item animate-fade-in">
+                    <div class="faq-question">Wer kümmert sich um Logistik und Kundenservice?</div>
+                    <div class="faq-answer">
+                        <p>Wir bieten ein Full-Service-Modell an, bei dem wir die gesamte Logistik, das Fulfillment und den Kundenservice übernehmen. Das umfasst die Lagerhaltung, den Versand, die Retouren-Abwicklung und den Kundensupport. Sie können sich auf die strategischen Aspekte Ihres Geschäfts konzentrieren, während wir uns um das operative Tagesgeschäft kümmern.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white py-2xl">
+        <div class="container">
+            <div class="grid grid-cols-2">
+                <div>
+                    <h3 class="text-white mb-lg">Brand Agent GmbH</h3>
+                    <p class="text-white mb-lg">Wir automatisieren Ihre Geschäftsprozesse und entwickeln massgeschneiderte Lösungen für Ihr Unternehmen.</p>
+                </div>
+                <div>
+                    <h4 class="text-white mb-lg">Kontakt</h4>
+                    <p class="text-white mb-sm">Brand Agent GmbH</p>
+                    <p class="text-white mb-sm">Musterstraße 123</p>
+                    <p class="text-white mb-sm">8001 Zürich</p>
+                    <p class="text-white mb-sm">UID: CHE-123.456.789</p>
+                    <p class="text-white">info@brandagent.ch</p>
+                </div>
+            </div>
+            <div class="border-t border-white/20 pt-lg mt-xl text-center">
+                <p class="text-white">© 2024 Brand Agent GmbH. Alle Rechte vorbehalten.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        // FAQ Toggle
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', function() {
+                const answer = this.nextElementSibling;
+                const isOpen = answer.style.display === 'block';
+                
+                // Close all other FAQ items
+                document.querySelectorAll('.faq-answer').forEach(ans => {
+                    ans.style.display = 'none';
+                });
+                
+                // Toggle current FAQ item
+                answer.style.display = isOpen ? 'none' : 'block';
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animated elements
+        document.querySelectorAll('.animate-fade-in, .animate-slide-in-left, .animate-slide-in-right').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

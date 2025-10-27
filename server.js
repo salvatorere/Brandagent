@@ -13,7 +13,32 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname)));
 
-// Routes
+// 301 Redirects für alte .html URLs
+app.get('/index.html', (req, res) => {
+    res.redirect(301, '/');
+});
+
+app.get('/brands.html', (req, res) => {
+    res.redirect(301, '/brands');
+});
+
+app.get('/agents.html', (req, res) => {
+    res.redirect(301, '/agents');
+});
+
+app.get('/kontakt.html', (req, res) => {
+    res.redirect(301, '/kontakt');
+});
+
+app.get('/partnerprogramm.html', (req, res) => {
+    res.redirect(301, '/partnerprogramm');
+});
+
+app.get('/impressum.html', (req, res) => {
+    res.redirect(301, '/impressum');
+});
+
+// Saubere URLs (ohne .html)
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
@@ -32,6 +57,10 @@ app.get('/kontakt', (req, res) => {
 
 app.get('/partnerprogramm', (req, res) => {
     res.sendFile(path.join(__dirname, 'partnerprogramm.html'));
+});
+
+app.get('/impressum', (req, res) => {
+    res.sendFile(path.join(__dirname, 'impressum.html'));
 });
 
 // E-Mail-Konfiguration

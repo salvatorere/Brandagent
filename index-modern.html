@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brand Agent GmbH - Automatisierung & E-Commerce</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="Image/BA Icon Schwarz auf Weiss.png">
+    <link rel="shortcut icon" type="image/png" href="Image/BA Icon Schwarz auf Weiss.png">
+    <link rel="apple-touch-icon" href="Image/BA Icon Schwarz auf Weiss.png">
+    <link rel="stylesheet" href="modern-design-system.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Index-spezifische Styles */
+        .hero-section {
+            padding-top: 120px;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+        
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #0f172a, #6366f1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: #475569;
+            margin-bottom: 3rem;
+            line-height: 1.6;
+        }
+        
+        .hero-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 1rem;
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+            margin: 3rem auto;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+        
+        .feature-card {
+            background: #ffffff;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            border: 1px solid #f1f5f9;
+            transition: all 300ms ease-in-out;
+            text-align: center;
+        }
+        
+        .feature-card:hover {
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            transform: translateY(-4px);
+        }
+        
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #6366f1, #4f46e5);
+            border-radius: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: white;
+            font-size: 1.25rem;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, #6366f1, #4f46e5);
+            color: white;
+            text-align: center;
+            padding: 6rem 0;
+        }
+        
+        .cta-title {
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+        
+        .cta-text {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.125rem;
+            margin-bottom: 3rem;
+        }
+        
+        .cta-button {
+            background: white;
+            color: #6366f1;
+            padding: 1.5rem 3rem;
+            border-radius: 0.75rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 300ms ease-in-out;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-content">
+                <div class="logo">
+                    <a href="/" class="logo-link">
+                        <img src="Image/logo2.png" alt="Brand Agent Logo">
+                        <span>Brand Agent</span>
+                    </a>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="/" class="active">Home</a></li>
+                    <li><a href="/brands">Brands</a></li>
+                    <li><a href="/agents">Agents</a></li>
+                    <li><a href="/partnerprogramm">Partnerprogramm</a></li>
+                    <li><a href="/kontakt">Kontakt</a></li>
+                </ul>
+                <button class="mobile-menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content animate-fade-in">
+                <h1 class="hero-title">Automatisierung & E-Commerce</h1>
+                <p class="hero-subtitle">Wir entwickeln massgeschneiderte Lösungen für Ihr Unternehmen – von Automatisierungs-Agents bis hin zu erfolgreichen Onlineshops mit Lizenzvereinbarung.</p>
+                
+                <div class="hero-image">
+                    <img src="Image/Network-Automation.png" alt="Automatisierung & E-Commerce" class="img-responsive img-rounded img-shadow">
+                </div>
+                
+                <div style="display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap;">
+                    <a href="/agents" style="display: inline-flex; align-items: center; justify-content: center; padding: 1.5rem 3rem; font-size: 1rem; font-weight: 600; text-decoration: none; border: none; border-radius: 0.75rem; cursor: pointer; transition: all 300ms ease-in-out; white-space: nowrap; background-color: #6366f1; color: white; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);">Automatisierung entdecken</a>
+                    <a href="/brands" style="display: inline-flex; align-items: center; justify-content: center; padding: 1.5rem 3rem; font-size: 1rem; font-weight: 600; text-decoration: none; border: 2px solid #6366f1; border-radius: 0.75rem; cursor: pointer; transition: all 300ms ease-in-out; white-space: nowrap; background-color: transparent; color: #6366f1;">E-Commerce erkunden</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section style="padding: 6rem 0; background-color: #f8fafc;">
+        <div style="max-width: 1280px; margin: 0 auto; padding: 0 1rem;">
+            <div style="text-align: center; margin-bottom: 3rem;">
+                <h2>Unsere Lösungen für Sie</h2>
+                <p style="color: #475569;">Von der Prozessautomatisierung bis zum erfolgreichen E-Commerce – wir bieten umfassende Lösungen für Ihr Unternehmen.</p>
+            </div>
+            
+            <div class="feature-grid">
+                <div class="feature-card animate-slide-in-left">
+                    <div class="feature-icon">🤖</div>
+                    <h3>Prozessautomatisierung</h3>
+                    <p>Digitale Workflows statt Papierkram – wir gestalten Ihre Abläufe effizienter und automatisieren repetitive Aufgaben.</p>
+                    <a href="/agents" class="btn btn-primary">Mehr erfahren</a>
+                </div>
+                
+                <div class="feature-card animate-fade-in">
+                    <div class="feature-icon">🛒</div>
+                    <h3>E-Commerce & Markenportale</h3>
+                    <p>Onlineshops, die funktionieren: von der technischen Basis bis zum individuellen Branding mit attraktiver Lizenzvereinbarung.</p>
+                    <a href="/brands" class="btn btn-primary">Mehr erfahren</a>
+                </div>
+                
+                <div class="feature-card animate-slide-in-right">
+                    <div class="feature-icon">🎨</div>
+                    <h3>Branding & Design</h3>
+                    <p>Starke Marken brauchen eine klare Identität – wir entwickeln Design & Markenstrategie für Ihren Erfolg.</p>
+                    <a href="/kontakt" class="btn btn-primary">Mehr erfahren</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section">
+        <div class="container">
+            <div class="grid grid-cols-2">
+                <div class="animate-slide-in-left">
+                    <h2>Über Brand Agent</h2>
+                    <p class="text-secondary mb-lg">Wir sind Ihr Partner für digitale Transformation und E-Commerce-Erfolg. Mit massgeschneiderten Automatisierungslösungen und innovativen E-Commerce-Strategien helfen wir Unternehmen dabei, ihre Prozesse zu optimieren und neue Geschäftsmodelle zu entwickeln.</p>
+                    
+                    <ul class="list">
+                        <li class="list-item">
+                            <div class="list-bullet"></div>
+                            <span>Bis zu 80% weniger manuelle Arbeit durch Automatisierung</span>
+                        </li>
+                        <li class="list-item">
+                            <div class="list-bullet"></div>
+                            <span>Nahtlose Integration mit Ihren bestehenden Tools</span>
+                        </li>
+                        <li class="list-item">
+                            <div class="list-bullet"></div>
+                            <span>Persönlicher Support durch Experten</span>
+                        </li>
+                        <li class="list-item">
+                            <div class="list-bullet"></div>
+                            <span>Attraktive Lizenzvereinbarungen für E-Commerce</span>
+                        </li>
+                    </ul>
+                    
+                    <a href="/kontakt" class="btn btn-primary btn-lg mt-xl">Kostenloses Beratungsgespräch</a>
+                </div>
+                
+                <div class="animate-slide-in-right">
+                    <img src="Image/Digital.png" alt="Brand Agent Team" class="img-responsive img-rounded img-shadow">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="cta-title">Bereit für den nächsten Schritt?</h2>
+            <p class="cta-text">Kontaktieren Sie uns noch heute für ein unverbindliches Beratungsgespräch und erfahren Sie, wie wir gemeinsam Ihre Geschäftsidee in die Realität umsetzen können.</p>
+            <a href="/kontakt" class="cta-button">Jetzt Termin vereinbaren</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white py-2xl">
+        <div class="container">
+            <div class="grid grid-cols-2">
+                <div>
+                    <h3 class="text-white mb-lg">Brand Agent GmbH</h3>
+                    <p class="text-white mb-lg">Wir automatisieren Ihre Geschäftsprozesse und entwickeln massgeschneiderte Lösungen für Ihr Unternehmen.</p>
+                </div>
+                <div>
+                    <h4 class="text-white mb-lg">Kontakt</h4>
+                    <p class="text-white mb-sm">Brand Agent GmbH</p>
+                    <p class="text-white mb-sm">Musterstraße 123</p>
+                    <p class="text-white mb-sm">8001 Zürich</p>
+                    <p class="text-white mb-sm">UID: CHE-123.456.789</p>
+                    <p class="text-white">info@brandagent.ch</p>
+                </div>
+            </div>
+            <div class="border-t border-white/20 pt-lg mt-xl text-center">
+                <p class="text-white">© 2024 Brand Agent GmbH. Alle Rechte vorbehalten.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animated elements
+        document.querySelectorAll('.animate-fade-in, .animate-slide-in-left, .animate-slide-in-right').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

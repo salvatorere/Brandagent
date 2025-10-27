@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agents - Brand Agent GmbH</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="Image/BA Icon Schwarz auf Weiss.png">
+    <link rel="shortcut icon" type="image/png" href="Image/BA Icon Schwarz auf Weiss.png">
+    <link rel="apple-touch-icon" href="Image/BA Icon Schwarz auf Weiss.png">
+    <link rel="stylesheet" href="modern-design-system.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Agents-spezifische Styles */
+        .hero-section {
+            padding-top: 120px;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+        }
+        
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: var(--spacing-lg);
+            background: linear-gradient(135deg, var(--text-primary), var(--primary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-subtitle {
+            font-size: var(--font-size-xl);
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-2xl);
+            line-height: 1.6;
+        }
+        
+        .agent-section {
+            padding: var(--spacing-4xl) 0;
+        }
+        
+        .agent-section:nth-child(even) {
+            background-color: var(--background-secondary);
+        }
+        
+        .agent-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-3xl);
+            align-items: center;
+        }
+        
+        .agent-image {
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .agent-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .agent-text h2 {
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .agent-text p {
+            margin-bottom: var(--spacing-lg);
+            font-size: var(--font-size-lg);
+            line-height: 1.7;
+        }
+        
+        .agent-features {
+            margin: var(--spacing-xl) 0;
+        }
+        
+        .agent-feature {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .agent-feature:last-child {
+            margin-bottom: 0;
+        }
+        
+        .feature-bullet {
+            width: 8px;
+            height: 8px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            margin-top: 8px;
+            flex-shrink: 0;
+        }
+        
+        .feature-text {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
+            color: white;
+            text-align: center;
+            padding: var(--spacing-4xl) 0;
+        }
+        
+        .cta-title {
+            color: white;
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .cta-text {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: var(--font-size-lg);
+            margin-bottom: var(--spacing-2xl);
+        }
+        
+        .cta-button {
+            background: white;
+            color: var(--primary-color);
+            padding: var(--spacing-lg) var(--spacing-2xl);
+            border-radius: var(--radius-lg);
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all var(--transition-normal);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        @media (max-width: 1023px) {
+            .agent-content {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-xl);
+            }
+            
+            .agent-content:nth-child(even) .agent-image {
+                order: 1;
+            }
+            
+            .agent-content:nth-child(even) .agent-text {
+                order: 2;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-content">
+                <div class="logo">
+                    <a href="/" class="logo-link">
+                        <img src="Image/logo2.png" alt="Brand Agent Logo">
+                        <span>Brand Agent</span>
+                    </a>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/brands">Brands</a></li>
+                    <li><a href="/agents" class="active">Agents</a></li>
+                    <li><a href="/partnerprogramm">Partnerprogramm</a></li>
+                    <li><a href="/kontakt">Kontakt</a></li>
+                </ul>
+                <button class="mobile-menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content animate-fade-in">
+                <h1 class="hero-title">Automatisieren Sie Ihre Geschäftsprozesse</h1>
+                <p class="hero-subtitle">Wir helfen Ihnen, Abläufe zu digitalisieren und effizienter zu gestalten – von Buchhaltung über E-Commerce bis Branding.</p>
+                
+                <ul class="list">
+                    <li class="list-item">
+                        <div class="list-bullet"></div>
+                        <span>Bis zu 80% weniger manuelle Arbeit</span>
+                    </li>
+                    <li class="list-item">
+                        <div class="list-bullet"></div>
+                        <span>Nahtlose Integration mit Ihren Tools</span>
+                    </li>
+                    <li class="list-item">
+                        <div class="list-bullet"></div>
+                        <span>Persönlicher Support durch Experten</span>
+                    </li>
+                </ul>
+                
+                <a href="/kontakt" class="btn btn-primary btn-lg">Vereinbaren Sie ein kostenloses Erstgespräch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Digital Agent Section -->
+    <section class="agent-section">
+        <div class="container">
+            <div class="agent-content">
+                <div class="agent-image animate-slide-in-left">
+                    <img src="Image/Network-Automation.png" alt="Digital Agent Illustration">
+                </div>
+                <div class="agent-text animate-slide-in-right">
+                    <h2>Individuelle Automatisierungslösungen für Ihr Unternehmen</h2>
+                    <p>Wir entwickeln massgeschneiderte Automatisierungs-Agents, die Ihre Geschäftsprozesse vereinfachen und beschleunigen. Ob Support, Routing oder spezifische Workflows – wir liefern die Lösung, die zu Ihrem Bedarf passt.</p>
+                    
+                    <div class="agent-features">
+                        <div class="agent-feature">
+                            <div class="feature-bullet"></div>
+                            <span class="feature-text">Automatisierung ohne manuelles Eingreifen</span>
+                        </div>
+                        <div class="agent-feature">
+                            <div class="feature-bullet"></div>
+                            <span class="feature-text">Unterstützung mehrerer Sprachen und Szenarien</span>
+                        </div>
+                        <div class="agent-feature">
+                            <div class="feature-bullet"></div>
+                            <span class="feature-text">Nahtlose Integration in bestehende Systeme</span>
+                        </div>
+                        <div class="agent-feature">
+                            <div class="feature-bullet"></div>
+                            <span class="feature-text">Optimierung durch Auswertung realer Nutzungsdaten</span>
+                        </div>
+                    </div>
+                    
+                    <a href="/kontakt" class="btn btn-primary">Mehr erfahren</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadgenerierung Section -->
+    <section class="agent-section">
+        <div class="container">
+            <div class="agent-content">
+                <div class="agent-text animate-slide-in-left">
+                    <h2>Neukundengewinnung bei Neugründungen</h2>
+                    <p>Wir unterstützen Unternehmen dabei, gezielt neue Neugründungen als potenzielle Kundschaft zu identifizieren und anzusprechen. Mit intelligenten Prozessen zur Erfassung und Bewertung von Leads sowie der Integration in bestehende CRM- und Marketing-Systeme entsteht ein nachhaltiger Log-in-Effekt, der Kunden langfristig an die Plattform oder das Angebot bindet.</p>
+                    
+                    <div class="agent-features">
+                        <div class="agent-feature">
+                            <div class="feature-bullet"></div>
+                            <span class="feature-text">Automatische Identifikation neuer Firmengründungen</span>
+                        </div>
+                        <div class="agent-feature">
+                            <div class="feature-bullet"></div>
+                            <span class="feature-text">Intelligente Lead-Bewertung und Priorisierung</span>
+                        </div>
+                        <div class="agent-feature">
+                            <div class="feature-bullet"></div>
+                            <span class="feature-text">Nahtlose CRM-Integration</span>
+                        </div>
+                        <div class="agent-feature">
+                            <div class="feature-bullet"></div>
+                            <span class="feature-text">Personalisierte Ansprache basierend auf Firmendaten</span>
+                        </div>
+                        <div class="agent-feature">
+                            <div class="feature-bullet"></div>
+                            <span class="feature-text">Höhere Sichtbarkeit durch strategische Postings</span>
+                        </div>
+                    </div>
+                    
+                    <a href="/kontakt" class="btn btn-primary">Mehr erfahren</a>
+                </div>
+                <div class="agent-image animate-slide-in-right">
+                    <img src="Image/zefix bild webseite1.png" alt="Leadgenerierung für Firmengründungen Illustration">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Smart Video Agent Section -->
+    <section class="agent-section">
+        <div class="container">
+            <div class="agent-content">
+                <div class="agent-image animate-slide-in-left">
+                    <img src="Image/SVA bild Webseite.png" alt="Smart Video Agent Illustration">
+                </div>
+                <div class="agent-text animate-slide-in-right">
+                    <h2>Smart Video Agent</h2>
+                    <p>Erstellen Sie automatisch Videos aus einem Online-Formular und veröffentlichen Sie diese direkt auf mehreren Plattformen – ohne technisches Vorwissen oder Mehraufwand.</p>
+                    
+                    <div class="agent-features">
+                        <div class="agent-feature">
+                            <div class="feature-bullet"></div>
+                            <span class="feature-text">Automatische Videoerstellung aus Formularen</span>
+                        </div>
+                        <div class="agent-feature">
+                            <div class="feature-bullet"></div>
+                            <span class="feature-text">Direkter Upload auf alle wichtigen Plattformen</span>
+                        </div>
+                        <div class="agent-feature">
+                            <div class="feature-bullet"></div>
+                            <span class="feature-text">Keine Videobearbeitungskenntnisse erforderlich</span>
+                        </div>
+                        <div class="agent-feature">
+                            <div class="feature-bullet"></div>
+                            <span class="feature-text">Kostengünstiger als manuelle Produktion</span>
+                        </div>
+                        <div class="agent-feature">
+                            <div class="feature-bullet"></div>
+                            <span class="feature-text">Mehr Content in kürzerer Zeit</span>
+                        </div>
+                        <div class="agent-feature">
+                            <div class="feature-bullet"></div>
+                            <span class="feature-text">Höhere Sichtbarkeit durch strategische Postings</span>
+                        </div>
+                    </div>
+                    
+                    <a href="/kontakt" class="btn btn-primary">Mehr erfahren</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section bg-secondary">
+        <div class="container">
+            <div class="text-center mb-2xl">
+                <h2>Unsere Lösungen für Sie</h2>
+                <p class="text-secondary">Von der Prozessautomatisierung bis zum erfolgreichen E-Commerce – wir bieten umfassende Lösungen für Ihr Unternehmen.</p>
+            </div>
+            
+            <div class="grid grid-cols-2">
+                <div class="card">
+                    <div class="card-body">
+                        <h3>Prozessautomatisierung</h3>
+                        <p class="text-secondary">Digitale Workflows statt Papierkram – wir gestalten Ihre Abläufe effizienter.</p>
+                        <a href="/kontakt" class="btn btn-secondary">Mehr erfahren</a>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-body">
+                        <h3>E-Commerce & Markenportale</h3>
+                        <p class="text-secondary">Onlineshops, die funktionieren: von der technischen Basis bis zum individuellen Branding.</p>
+                        <a href="/brands" class="btn btn-secondary">Mehr erfahren</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="cta-title">Bereit, Ihre Prozesse aufs nächste Level zu bringen?</h2>
+            <p class="cta-text">Kontaktieren Sie uns noch heute für ein unverbindliches Beratungsgespräch und erfahren Sie, wie wir gemeinsam Ihre Geschäftsidee in die Realität umsetzen können.</p>
+            <a href="/kontakt" class="cta-button">Jetzt Projekt starten</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white py-2xl">
+        <div class="container">
+            <div class="grid grid-cols-2">
+                <div>
+                    <h3 class="text-white mb-lg">Brand Agent GmbH</h3>
+                    <p class="text-white mb-lg">Wir automatisieren Ihre Geschäftsprozesse und entwickeln massgeschneiderte Lösungen für Ihr Unternehmen.</p>
+                </div>
+                <div>
+                    <h4 class="text-white mb-lg">Kontakt</h4>
+                    <p class="text-white mb-sm">Brand Agent GmbH</p>
+                    <p class="text-white mb-sm">Musterstraße 123</p>
+                    <p class="text-white mb-sm">8001 Zürich</p>
+                    <p class="text-white mb-sm">UID: CHE-123.456.789</p>
+                    <p class="text-white">info@brandagent.ch</p>
+                </div>
+            </div>
+            <div class="border-t border-white/20 pt-lg mt-xl text-center">
+                <p class="text-white">© 2024 Brand Agent GmbH. Alle Rechte vorbehalten.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animated elements
+        document.querySelectorAll('.animate-fade-in, .animate-slide-in-left, .animate-slide-in-right').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

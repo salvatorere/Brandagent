@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontakt - Brand Agent GmbH</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="Image/BA Icon Schwarz auf Weiss.png">
+    <link rel="shortcut icon" type="image/png" href="Image/BA Icon Schwarz auf Weiss.png">
+    <link rel="apple-touch-icon" href="Image/BA Icon Schwarz auf Weiss.png">
+    <link rel="stylesheet" href="modern-design-system.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Kontakt-spezifische Styles */
+        .hero-section {
+            padding-top: 120px;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: var(--spacing-lg);
+            background: linear-gradient(135deg, var(--text-primary), var(--primary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-subtitle {
+            font-size: var(--font-size-xl);
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-2xl);
+            line-height: 1.6;
+        }
+        
+        .contact-section {
+            padding: var(--spacing-4xl) 0;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-3xl);
+            align-items: start;
+        }
+        
+        .contact-info {
+            background: var(--background-color);
+            padding: var(--spacing-2xl);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-light);
+        }
+        
+        .contact-form {
+            background: var(--background-color);
+            padding: var(--spacing-2xl);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-light);
+        }
+        
+        .form-group {
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .form-label {
+            display: block;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .form-input,
+        .form-textarea {
+            width: 100%;
+            padding: var(--spacing-md);
+            border: 2px solid var(--border-color);
+            border-radius: var(--radius-md);
+            font-size: var(--font-size-base);
+            transition: border-color var(--transition-fast);
+            background-color: var(--background-color);
+        }
+        
+        .form-input:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+        }
+        
+        .form-textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .contact-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: var(--font-size-lg);
+            flex-shrink: 0;
+        }
+        
+        .contact-details h4 {
+            margin-bottom: var(--spacing-sm);
+            color: var(--text-primary);
+        }
+        
+        .contact-details p {
+            margin: 0;
+            color: var(--text-secondary);
+        }
+        
+        @media (max-width: 1023px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-xl);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-content">
+                <div class="logo">
+                    <a href="/" class="logo-link">
+                        <img src="Image/logo2.png" alt="Brand Agent Logo">
+                        <span>Brand Agent</span>
+                    </a>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/brands">Brands</a></li>
+                    <li><a href="/agents">Agents</a></li>
+                    <li><a href="/partnerprogramm">Partnerprogramm</a></li>
+                    <li><a href="/kontakt" class="active">Kontakt</a></li>
+                </ul>
+                <button class="mobile-menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content animate-fade-in">
+                <h1 class="hero-title">Kontaktieren Sie uns</h1>
+                <p class="hero-subtitle">Haben Sie Fragen zu unseren Services oder möchten Sie ein unverbindliches Beratungsgespräch vereinbaren? Wir freuen uns auf Ihre Nachricht.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info animate-slide-in-left">
+                    <h2 class="mb-xl">Kontaktinformationen</h2>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">🏢</div>
+                        <div class="contact-details">
+                            <h4>Firmenname</h4>
+                            <p>Brand Agent GmbH</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div class="contact-details">
+                            <h4>Adresse</h4>
+                            <p>Musterstraße 123<br>8001 Zürich</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">🆔</div>
+                        <div class="contact-details">
+                            <h4>UID</h4>
+                            <p>CHE-123.456.789</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">📧</div>
+                        <div class="contact-details">
+                            <h4>E-Mail</h4>
+                            <p>info@brandagent.ch</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-xl">
+                        <h3 class="mb-lg">Unsere Services</h3>
+                        <ul class="list">
+                            <li class="list-item">
+                                <div class="list-bullet"></div>
+                                <span>Automatisierungs-Agents</span>
+                            </li>
+                            <li class="list-item">
+                                <div class="list-bullet"></div>
+                                <span>E-Commerce-Lösungen</span>
+                            </li>
+                            <li class="list-item">
+                                <div class="list-bullet"></div>
+                                <span>Branding & Design</span>
+                            </li>
+                            <li class="list-item">
+                                <div class="list-bullet"></div>
+                                <span>Partnerprogramm</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="contact-form animate-slide-in-right">
+                    <h2 class="mb-xl">Nachricht senden</h2>
+                    
+                    <form>
+                        <div class="form-group">
+                            <label for="name" class="form-label">Name *</label>
+                            <input type="text" id="name" name="name" class="form-input" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email" class="form-label">E-Mail *</label>
+                            <input type="email" id="email" name="email" class="form-input" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="company" class="form-label">Unternehmen</label>
+                            <input type="text" id="company" name="company" class="form-input">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone" class="form-label">Telefon</label>
+                            <input type="tel" id="phone" name="phone" class="form-input">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="service" class="form-label">Interessierter Service</label>
+                            <select id="service" name="service" class="form-input">
+                                <option value="">Bitte wählen</option>
+                                <option value="automation">Automatisierungs-Agents</option>
+                                <option value="ecommerce">E-Commerce-Lösungen</option>
+                                <option value="branding">Branding & Design</option>
+                                <option value="partnership">Partnerprogramm</option>
+                                <option value="other">Sonstiges</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message" class="form-label">Nachricht *</label>
+                            <textarea id="message" name="message" class="form-textarea" required placeholder="Beschreiben Sie Ihr Projekt oder Ihre Anfrage..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-lg w-full">Nachricht senden</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="bg-primary text-white py-2xl">
+        <div class="container text-center">
+            <h2 class="text-white mb-lg">Bereit für den nächsten Schritt?</h2>
+            <p class="text-white mb-xl">Vereinbaren Sie noch heute ein kostenloses Beratungsgespräch mit unseren Experten.</p>
+            <a href="tel:+41123456789" class="btn" style="background: white; color: var(--primary-color);">Jetzt anrufen</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white py-2xl">
+        <div class="container">
+            <div class="grid grid-cols-2">
+                <div>
+                    <h3 class="text-white mb-lg">Brand Agent GmbH</h3>
+                    <p class="text-white mb-lg">Wir automatisieren Ihre Geschäftsprozesse und entwickeln massgeschneiderte Lösungen für Ihr Unternehmen.</p>
+                </div>
+                <div>
+                    <h4 class="text-white mb-lg">Kontakt</h4>
+                    <p class="text-white mb-sm">Brand Agent GmbH</p>
+                    <p class="text-white mb-sm">Musterstraße 123</p>
+                    <p class="text-white mb-sm">8001 Zürich</p>
+                    <p class="text-white mb-sm">UID: CHE-123.456.789</p>
+                    <p class="text-white">info@brandagent.ch</p>
+                </div>
+            </div>
+            <div class="border-t border-white/20 pt-lg mt-xl text-center">
+                <p class="text-white">© 2024 Brand Agent GmbH. Alle Rechte vorbehalten.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        // Form Submission
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // Simple validation
+            if (!data.name || !data.email || !data.message) {
+                alert('Bitte füllen Sie alle Pflichtfelder aus.');
+                return;
+            }
+            
+            // Simulate form submission
+            alert('Vielen Dank für Ihre Nachricht! Wir werden uns schnellstmöglich bei Ihnen melden.');
+            this.reset();
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animated elements
+        document.querySelectorAll('.animate-fade-in, .animate-slide-in-left, .animate-slide-in-right').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

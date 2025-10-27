@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Partnerprogramm - Brand Agent GmbH</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="Image/BA Icon Schwarz auf Weiss.png">
+    <link rel="shortcut icon" type="image/png" href="Image/BA Icon Schwarz auf Weiss.png">
+    <link rel="apple-touch-icon" href="Image/BA Icon Schwarz auf Weiss.png">
+    <link rel="stylesheet" href="modern-design-system.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Partnerprogramm-spezifische Styles */
+        .hero-section {
+            padding-top: 120px;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+        }
+        
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: var(--spacing-lg);
+            background: linear-gradient(135deg, var(--text-primary), var(--primary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-subtitle {
+            font-size: var(--font-size-xl);
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-2xl);
+            line-height: 1.6;
+        }
+        
+        .hero-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-xl);
+            margin: var(--spacing-2xl) auto;
+        }
+        
+        .benefits-section {
+            padding: var(--spacing-4xl) 0;
+            background-color: var(--background-secondary);
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-xl);
+            margin: var(--spacing-3xl) 0;
+        }
+        
+        .benefit-card {
+            background: var(--background-color);
+            padding: var(--spacing-xl);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-light);
+            text-align: center;
+            transition: all var(--transition-normal);
+        }
+        
+        .benefit-card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-4px);
+        }
+        
+        .benefit-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--spacing-lg);
+            color: white;
+            font-size: var(--font-size-xl);
+        }
+        
+        .partners-section {
+            padding: var(--spacing-4xl) 0;
+        }
+        
+        .partner-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-xl);
+            margin: var(--spacing-3xl) 0;
+        }
+        
+        .partner-card {
+            background: var(--background-color);
+            padding: var(--spacing-xl);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-light);
+            text-align: center;
+            transition: all var(--transition-normal);
+        }
+        
+        .partner-card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-4px);
+        }
+        
+        .partner-logo {
+            width: 80px;
+            height: 80px;
+            background: var(--background-secondary);
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--spacing-lg);
+            font-size: var(--font-size-2xl);
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
+            color: white;
+            text-align: center;
+            padding: var(--spacing-4xl) 0;
+        }
+        
+        .cta-title {
+            color: white;
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .cta-text {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: var(--font-size-lg);
+            margin-bottom: var(--spacing-2xl);
+        }
+        
+        .cta-button {
+            background: white;
+            color: var(--primary-color);
+            padding: var(--spacing-lg) var(--spacing-2xl);
+            border-radius: var(--radius-lg);
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all var(--transition-normal);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-xl);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-content">
+                <div class="logo">
+                    <a href="/" class="logo-link">
+                        <img src="Image/logo2.png" alt="Brand Agent Logo">
+                        <span>Brand Agent</span>
+                    </a>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/brands">Brands</a></li>
+                    <li><a href="/agents">Agents</a></li>
+                    <li><a href="/partnerprogramm" class="active">Partnerprogramm</a></li>
+                    <li><a href="/kontakt">Kontakt</a></li>
+                </ul>
+                <button class="mobile-menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content animate-fade-in">
+                <h1 class="hero-title">Partnerprogramm</h1>
+                <p class="hero-subtitle">Werden Sie Teil unseres erfolgreichen Partnerprogramms und profitieren Sie von attraktiven Konditionen und umfassendem Support.</p>
+                
+                <div class="hero-image">
+                    <img src="Image/bexio bild.png" alt="Partnerprogramm" class="img-responsive img-rounded img-shadow">
+                </div>
+                
+                <a href="/kontakt" class="btn btn-primary btn-lg">Jetzt Partner werden</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits-section">
+        <div class="container">
+            <div class="text-center mb-2xl">
+                <h2>Ihre Vorteile als Partner</h2>
+                <p class="text-secondary">Profitieren Sie von unserem umfassenden Partnerprogramm und bauen Sie gemeinsam mit uns erfolgreiche Geschäfte auf.</p>
+            </div>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card animate-slide-in-left">
+                    <div class="benefit-icon">💰</div>
+                    <h3>Attraktive Provisionen</h3>
+                    <p>Erhalten Sie hohe Provisionen für jeden erfolgreich vermittelten Kunden und profitieren Sie von unserem Wachstum.</p>
+                </div>
+                
+                <div class="benefit-card animate-fade-in">
+                    <div class="benefit-icon">🎯</div>
+                    <h3>Qualifizierte Leads</h3>
+                    <p>Wir stellen Ihnen qualifizierte Leads zur Verfügung und unterstützen Sie bei der Kundenakquise mit bewährten Strategien.</p>
+                </div>
+                
+                <div class="benefit-card animate-fade-in">
+                    <div class="benefit-icon">📚</div>
+                    <h3>Umfassendes Training</h3>
+                    <p>Profitieren Sie von unserem umfassenden Schulungsprogramm und werden Sie zum Experten für unsere Lösungen.</p>
+                </div>
+                
+                <div class="benefit-card animate-slide-in-right">
+                    <div class="benefit-icon">🤝</div>
+                    <h3>Persönlicher Support</h3>
+                    <p>Unser erfahrenes Team steht Ihnen mit Rat und Tat zur Seite und unterstützt Sie bei allen Herausforderungen.</p>
+                </div>
+                
+                <div class="benefit-card animate-slide-in-left">
+                    <div class="benefit-icon">📈</div>
+                    <h3>Skalierbares Wachstum</h3>
+                    <p>Bauen Sie Ihr Geschäft kontinuierlich aus und profitieren Sie von unserem nachhaltigen Wachstumsmodell.</p>
+                </div>
+                
+                <div class="benefit-card animate-slide-in-right">
+                    <div class="benefit-icon">🏆</div>
+                    <h3>Exklusive Vorteile</h3>
+                    <p>Genießen Sie exklusive Vorteile, frühen Zugang zu neuen Produkten und bevorzugte Behandlung bei Support-Anfragen.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section class="partners-section">
+        <div class="container">
+            <div class="text-center mb-2xl">
+                <h2>Unsere Partner</h2>
+                <p class="text-secondary">Vertrauen Sie auf bewährte Partnerschaften mit führenden Unternehmen in der Schweiz.</p>
+            </div>
+            
+            <div class="partner-grid">
+                <div class="partner-card animate-fade-in">
+                    <div class="partner-logo">B</div>
+                    <h3>Bexio</h3>
+                    <p class="text-secondary">Führende Buchhaltungssoftware für KMU in der Schweiz.</p>
+                </div>
+                
+                <div class="partner-card animate-fade-in">
+                    <div class="partner-logo">Z</div>
+                    <h3>Zefix</h3>
+                    <p class="text-secondary">Zentrales Firmenregister der Schweiz für Unternehmensdaten.</p>
+                </div>
+                
+                <div class="partner-card animate-fade-in">
+                    <div class="partner-logo">S</div>
+                    <h3>SVA</h3>
+                    <p class="text-secondary">Schweizerische Versicherungsanstalt für Sozialversicherungen.</p>
+                </div>
+                
+                <div class="partner-card animate-fade-in">
+                    <div class="partner-logo">N</div>
+                    <h3>n8n</h3>
+                    <p class="text-secondary">Workflow-Automatisierung für moderne Unternehmen.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How it Works Section -->
+    <section class="section bg-secondary">
+        <div class="container">
+            <div class="text-center mb-2xl">
+                <h2>So funktioniert es</h2>
+                <p class="text-secondary">Werden Sie in wenigen Schritten Teil unseres Partnerprogramms.</p>
+            </div>
+            
+            <div class="grid grid-cols-2">
+                <div class="animate-slide-in-left">
+                    <h3 class="mb-lg">Schritt 1: Bewerbung</h3>
+                    <p class="text-secondary mb-lg">Senden Sie uns Ihre Bewerbung mit Ihrem Profil und Ihren Erfahrungen. Wir prüfen jeden Antrag sorgfältig.</p>
+                    
+                    <h3 class="mb-lg">Schritt 2: Onboarding</h3>
+                    <p class="text-secondary mb-lg">Nach der Zusage erhalten Sie Zugang zu unserem Partnerportal und umfassenden Schulungsmaterialien.</p>
+                    
+                    <h3 class="mb-lg">Schritt 3: Start</h3>
+                    <p class="text-secondary mb-lg">Beginnen Sie mit der Vermarktung unserer Lösungen und profitieren Sie von unserem Support-Team.</p>
+                </div>
+                
+                <div class="animate-slide-in-right">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="mb-lg">Partner werden</h3>
+                            <p class="text-secondary mb-lg">Füllen Sie das Formular aus und wir melden uns innerhalb von 24 Stunden bei Ihnen.</p>
+                            
+                            <form>
+                                <div class="form-group">
+                                    <label class="form-label">Name *</label>
+                                    <input type="text" class="form-input" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="form-label">E-Mail *</label>
+                                    <input type="email" class="form-input" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="form-label">Unternehmen</label>
+                                    <input type="text" class="form-input">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="form-label">Nachricht</label>
+                                    <textarea class="form-textarea" rows="4"></textarea>
+                                </div>
+                                
+                                <button type="submit" class="btn btn-primary w-full">Bewerbung senden</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="cta-title">Bereit, Partner zu werden?</h2>
+            <p class="cta-text">Kontaktieren Sie uns noch heute und erfahren Sie, wie Sie von unserem Partnerprogramm profitieren können.</p>
+            <a href="/kontakt" class="cta-button">Jetzt bewerben</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white py-2xl">
+        <div class="container">
+            <div class="grid grid-cols-2">
+                <div>
+                    <h3 class="text-white mb-lg">Brand Agent GmbH</h3>
+                    <p class="text-white mb-lg">Wir automatisieren Ihre Geschäftsprozesse und entwickeln massgeschneiderte Lösungen für Ihr Unternehmen.</p>
+                </div>
+                <div>
+                    <h4 class="text-white mb-lg">Kontakt</h4>
+                    <p class="text-white mb-sm">Brand Agent GmbH</p>
+                    <p class="text-white mb-sm">Musterstraße 123</p>
+                    <p class="text-white mb-sm">8001 Zürich</p>
+                    <p class="text-white mb-sm">UID: CHE-123.456.789</p>
+                    <p class="text-white">info@brandagent.ch</p>
+                </div>
+            </div>
+            <div class="border-t border-white/20 pt-lg mt-xl text-center">
+                <p class="text-white">© 2024 Brand Agent GmbH. Alle Rechte vorbehalten.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        // Form Submission
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // Simple validation
+            if (!data.name || !data.email) {
+                alert('Bitte füllen Sie alle Pflichtfelder aus.');
+                return;
+            }
+            
+            // Simulate form submission
+            alert('Vielen Dank für Ihre Bewerbung! Wir werden uns schnellstmöglich bei Ihnen melden.');
+            this.reset();
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animated elements
+        document.querySelectorAll('.animate-fade-in, .animate-slide-in-left, .animate-slide-in-right').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
